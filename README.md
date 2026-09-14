@@ -4,7 +4,7 @@ Repositório do aluno VITOR LEONARDO SOUZA HIRCH.
 
 **Aluno:** VITOR LEONARDO SOUZA HIRCH 
 **Curso:** Desenvolvimento de Software Multiplataforma  
-**Turma:** 2º semestre / ingresso em 2026
+**Turma:** 2DSM – 1º Sem. 2026
 
 ---
 
