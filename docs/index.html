@@ -1,49 +1,416 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfólio - VITOR LEONARDO SOUZA HIRCH</title>
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header id="inicio">
-        HERO
+      <img
+        class="hero-fundo"
+        src="assets/foto-hero-completa-fundo.png"
+        alt=""
+      />
+
+      <img
+        class="hero-forma hero-forma-1"
+        src="assets/Rectangle 1.png"
+        alt=""
+      />
+
+      <img
+        class="hero-forma hero-forma-2"
+        src="assets/Rectangle 2.png"
+        alt=""
+      />
+
+      <h1 class="hero-nome">
+        <span>VITOR </span>
+        <span>HIRCH</span>
+      </h1>
+
+      <img
+        class="foto-hero"
+        src="assets/foto-hero-recorte.png"
+        alt="Vitor Hirch"
+      />
+
+      <img class="hero-respingo" src="assets/respingo.png" alt="" />
+
+      <p class="hero-subtitulo">DESIGN · DESENVOLVIMENTO · TECNOLOGIA</p>
     </header>
 
-<nav>
-    <a href ="#inicio">Inicio</a>
-    <a href ="#projetos">Projetos</a>
-    <a href ="#sobre">Sobre Mim</a>
-    <a href ="#contato">Contato</a>
-</nav>
+    <nav class="navbar">
+      <a href="#inicio">Inicio</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#sobre">Sobre Mim</a>
+      <a href="#contato">Contato</a>
+    </nav>
 
-<main>
-    <section id="projetos">
-        projetos em destaque 
-    </section>
-   
-    <section id="sobre">
-        sobre mim
-    </section>
+    <main>
+<section id="projetos">
 
-    <section id="processo">
-        processo criativo
-    </section>
+    <span class="secao-label">DESTAQUES</span>
+    <h2>Projetos em destaque</h2>
 
-    <section id="projeto-01">
-        projeto 01
-    </section>
+    <div class="projetos-destaque">
 
-    <section id="projeto-02">
-        projeto 02
+        <a class="projeto-card projeto-card-ativo"
+           href="#projeto-01">
 
-    </section>
-</main>
+            <img
+                src="assets/logo_scrum_dungeon_capa.png"
+                alt="Scrum Dungeon"
+            >
 
-<footer id="contato">
-    contato
-</footer>
+            <div class="card-info">
+                <span>01 · ACADÊMICO</span>
+                <h3>Scrum Dungeon</h3>
+                <p>UX/UI · Front-end · Back-end</p>
+            </div>
 
-   
-</body>
+        </a>
+
+        <article class="projeto-card projeto-card-futuro">
+            <span>02</span>
+            <p>Em breve</p>
+        </article>
+
+        <article class="projeto-card projeto-card-futuro">
+            <span>03</span>
+            <p>Em breve</p>
+        </article>
+
+    </div>
+
+</section>
+
+      <section id="sobre">
+
+    <div class="sobre-cabecalho">
+        <span class="secao-label">SOBRE MIM</span>
+        <h2>Entre design e desenvolvimento.</h2>
+    </div>
+
+    <div class="sobre-navegacao">
+
+        <button class="sobre-botao ativo" data-conteudo="trajetoria">
+            Trajetória
+        </button>
+
+        <button class="sobre-botao" data-conteudo="habilidades">
+            Habilidades
+        </button>
+
+        <button class="sobre-botao" data-conteudo="formacao">
+            Formação
+        </button>
+
+    </div>
+
+    <div class="sobre-conteudos">
+
+        <!-- TRAJETÓRIA -->
+        <div class="sobre-painel ativo" id="trajetoria">
+
+            <div class="sobre-texto">
+
+                <p>
+                    Sou estudante de Desenvolvimento de Software Multiplataforma
+                    na FATEC Jacareí e formado em Design de Produto.
+                </p>
+
+                <p>
+                    Minha trajetória começou no design, passando por UX/UI,
+                    motion design, ilustração e projetos para marcas. Hoje,
+                    amplio essa experiência através do desenvolvimento de software,
+                    unindo pensamento visual, experiência do usuário e tecnologia
+                    na construção de produtos digitais.
+                </p>
+
+            </div>
+
+            <div class="sobre-fotos">
+
+                <img src="assets/sm1.JPG" alt="Vitor trabalhando em projeto artístico">
+
+                <img src="assets/sm2.png" alt="Projeto artístico">
+
+                <img src="assets/sm3.png" alt="Vitor em seu espaço de trabalho">
+
+            </div>
+
+        </div>
+
+
+        <!-- HABILIDADES -->
+        <div class="sobre-painel" id="habilidades">
+
+            <div class="skills-mapa">
+
+                <div class="skill skill-centro">
+                    SKILLS
+                </div>
+
+                <div class="skill skill-design">
+                    Design
+                </div>
+
+                <div class="skill skill-front">
+                    Front-end
+                </div>
+
+                <div class="skill skill-back">
+                    Back-end
+                </div>
+
+                <div class="skill skill-ferramentas">
+                    Ferramentas
+                </div>
+
+            </div>
+
+            <div class="skills-descricao">
+
+                <p>
+                    Minha experiência combina desenvolvimento e design,
+                    permitindo transitar entre a concepção visual de uma
+                    solução e sua implementação.
+                </p>
+
+                <div class="skills-lista">
+
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>Node.js</span>
+                    <span>PostgreSQL</span>
+                    <span>Git</span>
+                    <span>Docker</span>
+                    <span>Figma</span>
+                    <span>UX/UI</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FORMAÇÃO -->
+        <div class="sobre-painel" id="formacao">
+
+            <div class="formacao-grid">
+
+                <article>
+                    <span>2026 — 2028</span>
+                    <h3>Desenvolvimento de Software Multiplataforma</h3>
+                    <p>FATEC Jacareí</p>
+                </article>
+
+                <article>
+                    <span>2021 — 2023</span>
+                    <h3>Design de Produto</h3>
+                    <p>Anhembi Morumbi</p>
+                </article>
+
+                <article>
+                    <span>2024</span>
+                    <h3>Trilha UX Design</h3>
+                    <p>Programa Desenvolve · Grupo Boticário</p>
+                </article>
+
+                <article>
+                    <span>2024</span>
+                    <h3>Formação Figma & UX Design</h3>
+                    <p>Alura</p>
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+  
+      <section id="processo">
+
+    <span class="secao-label">PROCESSO</span>
+
+    <h2>Processo criativo</h2>
+
+    <p class="processo-intro">
+        Do primeiro rascunho ao código.
+    </p>
+
+
+    <div class="processo-botoes">
+
+        <button
+            class="processo-botao ativo"
+            data-etapa="esboco"
+        >
+            <img
+                src="assets/processo-esboco.png"
+                alt=""
+            >
+
+            <span>01 · Esboço</span>
+        </button>
+
+
+        <button
+            class="processo-botao"
+            data-etapa="logica"
+        >
+            <img
+                src="assets/processo-logica.png"
+                alt=""
+            >
+
+            <span>02 · Lógica</span>
+        </button>
+
+
+        <button
+            class="processo-botao"
+            data-etapa="implementacao"
+        >
+            <img
+                src="assets/processo-implementacao.png"
+                alt=""
+            >
+
+            <span>03 · Implementação</span>
+        </button>
+
+    </div>
+
+
+    <div class="processo-descricao">
+
+        <span id="processo-numero">
+            01
+        </span>
+
+        <h3 id="processo-titulo">
+            Esboço
+        </h3>
+
+        <p id="processo-texto">
+            Ideias começam no papel, explorando possibilidades,
+            referências e diferentes caminhos para a solução.
+        </p>
+
+    </div>
+
+</section>
+      <section id="projeto-01">
+        <span class="projeto-numero"> PROJETO 01 · 1DSM · 1º SEM. 2026 </span>
+
+        <h2>Scrum Dungeon</h2>
+
+        <div class="projeto-detalhes">
+          <div class="projeto-media">
+            <img
+              src="assets/miniatura-1-scrum-dungeon.png"
+              alt="Interface do projeto Scrum Dungeon"
+            />
+          </div>
+
+          <div class="projeto-conteudo">
+            <h3>Sobre o projeto</h3>
+
+            <p>
+              Scrum Dungeon é uma plataforma gamificada desenvolvida para tornar
+              o aprendizado da metodologia Scrum mais interativo e envolvente,
+              utilizando elementos de RPG e progressão ao longo da experiência.
+            </p>
+
+            <h3>Minha contribuição</h3>
+
+            <p>
+              Atuei como Product Owner, sendo responsável pela comunicação com o
+              cliente, organização do Product Backlog e definição das
+              prioridades do projeto.
+            </p>
+
+            <p>
+              Também participei do desenvolvimento da aplicação em diferentes
+              etapas, desde a prototipação, definição dos fluxos de tela e
+              criação da identidade visual até a implementação do front-end.
+            </p>
+
+            <p>
+              No back-end, contribuí com a arquitetura e organização do projeto
+              em camadas e módulos, além do desenvolvimento de funcionalidades
+              como o sistema de progressão, mapa e lógica de jogo.
+            </p>
+          </div>
+        </div>
+
+        <div class="projeto-galeria">
+          <img
+            src="assets/miniatura-2-scrum-dungeon.png"
+            alt="Tela do projeto Scrum Dungeon"
+          />
+
+          <img
+            src="assets/miniatura-3-scrum-dungeon.png"
+            alt="Tela do projeto Scrum Dungeon"
+          />
+        </div>
+
+        <div class="projeto-tecnico">
+          <div>
+            <h3>Tecnologias</h3>
+
+            <p>
+              HTML · CSS · JavaScript · EJS · Node.js · Express · PostgreSQL ·
+              Figma
+            </p>
+          </div>
+
+          <div>
+            <h3>Arquitetura e desenvolvimento</h3>
+
+            <p>
+              Renderização com EJS, lógica de negócio centralizada no servidor,
+              banco de dados PostgreSQL com DDL/DML explícitos e fluxo de
+              versionamento baseado em Git Flow com Pull Requests.
+            </p>
+          </div>
+        </div>
+
+        <a
+          class="projeto-link"
+          href="https://github.com/octopusCode26/scrum-dungeon"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ver projeto no GitHub ↗
+        </a>
+      </section>
+    </main>
+
+    <footer id="contato">
+      <p>Tem um projeto ou quer conversar?</p>
+
+      <h2>Vamos nos conectar.</h2>
+
+      <div class="contato-links">
+        <a href="#" target="_blank">GitHub ↗</a>
+        <a href="#" target="_blank">LinkedIn ↗</a>
+      </div>
+
+      <small>
+        Vitor Hirch · Desenvolvimento de Software Multiplataforma · 2026
+      </small>
+    </footer>
+  </body>
+
+  <script src="script.js"></script>
 </html>
