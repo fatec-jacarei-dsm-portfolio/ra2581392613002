@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfólio - VITOR LEONARDO SOUZA HIRCH</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <header id="inicio">
@@ -40,333 +40,541 @@
       <img class="hero-respingo" src="assets/respingo.png" alt="" />
 
       <p class="hero-subtitulo">DESIGN · DESENVOLVIMENTO · TECNOLOGIA</p>
-    </header>
 
-    <nav class="navbar">
-      <a href="#inicio">Inicio</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#sobre">Sobre Mim</a>
-      <a href="#contato">Contato</a>
-    </nav>
-
-    <main>
-<section id="projetos">
-
-    <span class="secao-label">DESTAQUES</span>
-    <h2>Projetos em destaque</h2>
-
-    <div class="projetos-destaque">
-
-        <a class="projeto-card projeto-card-ativo"
-           href="#projeto-01">
-
-            <img
-                src="assets/logo_scrum_dungeon_capa.png"
-                alt="Scrum Dungeon"
-            >
-
-            <div class="card-info">
-                <span>01 · ACADÊMICO</span>
-                <h3>Scrum Dungeon</h3>
-                <p>UX/UI · Front-end · Back-end</p>
-            </div>
-
+      <div class="hero-social">
+        <a
+          href="https://www.linkedin.com/in/vitor-hirch/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn ↗
         </a>
 
-        <article class="projeto-card projeto-card-futuro">
+        <a
+          href="https://github.com/vitorhirch"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub ↗
+        </a>
+      </div>
+
+      <nav class="navbar">
+        <a href="#inicio">Inicio</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#sobre">Sobre Mim</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="projetos">
+        <span class="secao-label">DESTAQUES</span>
+        <h2>Projetos em destaque</h2>
+
+        <div class="projetos-destaque">
+          <a class="projeto-card projeto-card-ativo" href="#projeto-01">
+            <img
+              src="./assets/logo_scrum_dungeon_capa.png"
+              alt="Scrum Dungeon"
+            />
+
+            <div class="card-info">
+              <span> 01 · ACADÊMICO </span>
+
+              <h3>Scrum Dungeon</h3>
+
+              <div class="card-hover">
+                <p>
+                  Plataforma gamificada para o aprendizado da metodologia Scrum
+                  através de uma experiência inspirada em RPG.
+                </p>
+
+                <strong> Explorar projeto ↘ </strong>
+              </div>
+            </div>
+          </a>
+
+          <article class="projeto-card projeto-card-futuro">
             <span>02</span>
             <p>Em breve</p>
-        </article>
+          </article>
 
-        <article class="projeto-card projeto-card-futuro">
+          <article class="projeto-card projeto-card-futuro">
             <span>03</span>
             <p>Em breve</p>
-        </article>
-
-    </div>
-
-</section>
+          </article>
+        </div>
+      </section>
 
       <section id="sobre">
-
-    <div class="sobre-cabecalho">
-        <span class="secao-label">SOBRE MIM</span>
-        <h2>Entre design e desenvolvimento.</h2>
-    </div>
-
-    <div class="sobre-navegacao">
-
-        <button class="sobre-botao ativo" data-conteudo="trajetoria">
-            Trajetória
-        </button>
-
-        <button class="sobre-botao" data-conteudo="habilidades">
-            Habilidades
-        </button>
-
-        <button class="sobre-botao" data-conteudo="formacao">
-            Formação
-        </button>
-
-    </div>
-
-    <div class="sobre-conteudos">
-
-        <!-- TRAJETÓRIA -->
-        <div class="sobre-painel ativo" id="trajetoria">
-
-            <div class="sobre-texto">
-
-                <p>
-                    Sou estudante de Desenvolvimento de Software Multiplataforma
-                    na FATEC Jacareí e formado em Design de Produto.
-                </p>
-
-                <p>
-                    Minha trajetória começou no design, passando por UX/UI,
-                    motion design, ilustração e projetos para marcas. Hoje,
-                    amplio essa experiência através do desenvolvimento de software,
-                    unindo pensamento visual, experiência do usuário e tecnologia
-                    na construção de produtos digitais.
-                </p>
-
-            </div>
-
-            <div class="sobre-fotos">
-
-                <img src="assets/sm1.JPG" alt="Vitor trabalhando em projeto artístico">
-
-                <img src="assets/sm2.png" alt="Projeto artístico">
-
-                <img src="assets/sm3.png" alt="Vitor em seu espaço de trabalho">
-
-            </div>
-
+        <div class="sobre-cabecalho">
+          <span class="secao-label">SOBRE MIM</span>
+          <h2>Minha Trajetória.</h2>
         </div>
 
+        <div class="sobre-navegacao">
+          <button class="sobre-botao ativo" data-conteudo="trajetoria">
+            Trajetória
+          </button>
 
-        <!-- HABILIDADES -->
-        <div class="sobre-painel" id="habilidades">
+          <button class="sobre-botao" data-conteudo="habilidades">
+            Habilidades
+          </button>
+
+          <button class="sobre-botao" data-conteudo="formacao">Formação</button>
+        </div>
+
+        <div class="sobre-conteudos">
+          <!-- TRAJETÓRIA -->
+          <div class="sobre-painel ativo" id="trajetoria">
+            <div class="trajetoria-conteudo">
+              <div class="sobre-texto">
+                <span class="trajetoria-indice" id="trajetoria-indice">
+                  01 / 04
+                </span>
+
+                <h3 id="trajetoria-titulo">Da rua para o design.</h3>
+
+                <p id="trajetoria-texto">
+                  Minha relação com o processo criativo começou nas artes
+                  visuais, principalmente através da tatuagem, ilustração e
+                  graffiti. Foi onde comecei a explorar composição, cor,
+                  identidade e diferentes formas de comunicar visualmente.
+                </p>
+
+                <span class="trajetoria-instrucao">
+                  Selecione uma imagem para percorrer minha trajetória.
+                </span>
+              </div>
+
+              <div class="trajetoria-galeria">
+                <button
+                  class="sobre-foto foto-01 ativa"
+                  data-indice="0"
+                  aria-label="Artes visuais"
+                >
+                  <img
+                    src="./assets/sm1.JPG"
+                    alt="Vitor trabalhando com artes visuais"
+                  />
+
+                  <span class="foto-numero">01</span>
+                </button>
+
+                <button
+                  class="sobre-foto foto-02"
+                  data-indice="1"
+                  aria-label="Design"
+                >
+                  <img src="./assets/sm2.png" alt="Trabalho visual de Vitor" />
+
+                  <span class="foto-numero">02</span>
+                </button>
+
+                <button
+                  class="sobre-foto foto-03"
+                  data-indice="2"
+                  aria-label="UX, UI e produtos digitais"
+                >
+                  <img
+                    src="./assets/sm3.png"
+                    alt="Vitor em seu espaço de trabalho"
+                  />
+
+                  <span class="foto-numero">03</span>
+                </button>
+
+                <button
+                  class="sobre-foto foto-04"
+                  data-indice="3"
+                  aria-label="Tecnologia"
+                >
+                  <img
+                    src="./assets/sm4.png"
+                    alt="Trajetória de Vitor em tecnologia"
+                  />
+
+                  <span class="foto-numero">04</span>
+                </button>
+
+                <!-- elementos decorativos -->
+
+                <img
+                  class="trajetoria-spray"
+                  src="./assets/spray.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+
+                <img
+                  class="trajetoria-cap cap-01"
+                  src="./assets/cap.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+
+                <img
+                  class="trajetoria-cap cap-02"
+                  src="./assets/cap.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- HABILIDADES -->
+          <div class="sobre-painel" id="habilidades">
+            <div class="skills-intro">
+              <span class="skills-label">MAPA DE HABILIDADES</span>
+
+              <h3>Design, código e processo.</h3>
+
+              <p>
+                Explore as áreas para conhecer as ferramentas e conhecimentos
+                que fazem parte da minha trajetória.
+              </p>
+            </div>
 
             <div class="skills-mapa">
+              <!-- NÚCLEO -->
+              <button class="skill-node skill-centro" data-skill="centro">
+                <span>VH</span>
+                <small>Design + Tecnologia</small>
+              </button>
 
-                <div class="skill skill-centro">
-                    SKILLS
-                </div>
+              <!-- =====================
+         DESENVOLVIMENTO
+    ====================== -->
 
-                <div class="skill skill-design">
-                    Design
-                </div>
+              <div class="skill-grupo grupo-dev">
+                <span class="skill-grupo-titulo">Desenvolvimento</span>
 
-                <div class="skill skill-front">
-                    Front-end
-                </div>
+                <button class="skill-node" data-skill="javascript">
+                  JS
+                  <small>JavaScript</small>
+                </button>
 
-                <div class="skill skill-back">
-                    Back-end
-                </div>
+                <button class="skill-node" data-skill="typescript">
+                  TS
+                  <small>TypeScript</small>
+                </button>
 
-                <div class="skill skill-ferramentas">
-                    Ferramentas
-                </div>
+                <button class="skill-node" data-skill="html">
+                  &lt;/&gt;
+                  <small>HTML</small>
+                </button>
 
+                <button class="skill-node" data-skill="css">
+                  #
+                  <small>CSS</small>
+                </button>
+
+                <button class="skill-node" data-skill="node">
+                  N
+                  <small>Node.js</small>
+                </button>
+
+                <button class="skill-node" data-skill="postgresql">
+                  DB
+                  <small>PostgreSQL</small>
+                </button>
+
+                <button class="skill-node skill-secundaria" data-skill="python">
+                  PY
+                  <small>Python</small>
+                </button>
+              </div>
+
+              <!-- =====================
+         DESIGN
+    ====================== -->
+
+              <div class="skill-grupo grupo-design">
+                <span class="skill-grupo-titulo">Design & UX</span>
+
+                <button class="skill-node" data-skill="figma">
+                  F
+                  <small>Figma</small>
+                </button>
+
+                <button class="skill-node" data-skill="ux">
+                  UX
+                  <small>UX Design</small>
+                </button>
+
+                <button class="skill-node" data-skill="ui">
+                  UI
+                  <small>UI Design</small>
+                </button>
+
+                <button class="skill-node" data-skill="prototipagem">
+                  P
+                  <small>Prototipagem</small>
+                </button>
+
+                <button class="skill-node" data-skill="research">
+                  R
+                  <small>UX Research</small>
+                </button>
+              </div>
+
+              <!-- =====================
+         PROCESSO
+    ====================== -->
+
+              <div class="skill-grupo grupo-processo">
+                <span class="skill-grupo-titulo">Processo & Arquitetura</span>
+
+                <button class="skill-node" data-skill="git">
+                  GIT
+                  <small>Git / GitHub</small>
+                </button>
+
+                <button class="skill-node" data-skill="scrum">
+                  S
+                  <small>Scrum</small>
+                </button>
+
+                <button class="skill-node" data-skill="uml">
+                  UML
+                  <small>UML</small>
+                </button>
+
+                <button class="skill-node" data-skill="docker">
+                  D
+                  <small>Docker</small>
+                </button>
+
+                <button class="skill-node" data-skill="arquitetura">
+                  A
+                  <small>Arquitetura</small>
+                </button>
+              </div>
+
+              <div class="skill-popover" id="skill-popover">
+                <span id="skill-popover-categoria"></span>
+
+                <h3 id="skill-popover-titulo"></h3>
+
+                <p id="skill-popover-texto"></p>
+                
+              </div>
             </div>
 
+            <!-- descrição que depois será alterada pelo JavaScript -->
             <div class="skills-descricao">
+              <span
+                class="skill-descricao-label"
+                id="skill-descricao-categoria"
+              >
+                VISÃO GERAL
+              </span>
 
-                <p>
-                    Minha experiência combina desenvolvimento e design,
-                    permitindo transitar entre a concepção visual de uma
-                    solução e sua implementação.
-                </p>
+              <h3 id="skill-descricao-titulo">
+                Um repertório multidisciplinar.
+              </h3>
 
-                <div class="skills-lista">
-
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>Node.js</span>
-                    <span>PostgreSQL</span>
-                    <span>Git</span>
-                    <span>Docker</span>
-                    <span>Figma</span>
-                    <span>UX/UI</span>
-
-                </div>
-
+              <p id="skill-descricao-texto">
+                Minha experiência combina desenvolvimento, design e processos,
+                permitindo transitar entre a concepção visual de uma solução,
+                sua estrutura e sua implementação.
+              </p>
             </div>
+          </div>
 
-        </div>
-
-
-        <!-- FORMAÇÃO -->
-        <div class="sobre-painel" id="formacao">
-
+          <!-- FORMAÇÃO -->
+          <div class="sobre-painel" id="formacao">
             <div class="formacao-grid">
+              <article>
+                <span>2026 — 2028</span>
+                <h3>Desenvolvimento de Software Multiplataforma</h3>
+                <p>FATEC Jacareí</p>
+              </article>
 
-                <article>
-                    <span>2026 — 2028</span>
-                    <h3>Desenvolvimento de Software Multiplataforma</h3>
-                    <p>FATEC Jacareí</p>
-                </article>
+              <article>
+                <span>2021 — 2023</span>
+                <h3>Design de Produto</h3>
+                <p>Anhembi Morumbi</p>
+              </article>
 
-                <article>
-                    <span>2021 — 2023</span>
-                    <h3>Design de Produto</h3>
-                    <p>Anhembi Morumbi</p>
-                </article>
+              <article>
+                <span>2024</span>
+                <h3>Trilha UX Design</h3>
+                <p>Programa Desenvolve · Grupo Boticário</p>
+              </article>
 
-                <article>
-                    <span>2024</span>
-                    <h3>Trilha UX Design</h3>
-                    <p>Programa Desenvolve · Grupo Boticário</p>
-                </article>
-
-                <article>
-                    <span>2024</span>
-                    <h3>Formação Figma & UX Design</h3>
-                    <p>Alura</p>
-                </article>
-
+              <article>
+                <span>2024</span>
+                <h3>Formação Figma & UX Design</h3>
+                <p>Alura</p>
+              </article>
             </div>
-
+          </div>
         </div>
+      </section>
 
-    </div>
-
-</section>
-  
       <section id="processo">
+        <span class="secao-label">PROCESSO</span>
 
-    <span class="secao-label">PROCESSO</span>
+        <h2>Processo criativo</h2>
 
-    <h2>Processo criativo</h2>
+        <p class="processo-intro">Do primeiro rascunho ao código.</p>
 
-    <p class="processo-intro">
-        Do primeiro rascunho ao código.
-    </p>
-
-
-    <div class="processo-botoes">
-
-        <button
-            class="processo-botao ativo"
-            data-etapa="esboco"
-        >
-            <img
-                src="assets/processo-esboco.png"
-                alt=""
-            >
+        <div class="processo-botoes">
+          <button class="processo-botao ativo" data-etapa="esboco">
+            <img src="assets/processo-esboco.png" alt="" />
 
             <span>01 · Esboço</span>
-        </button>
+          </button>
 
-
-        <button
-            class="processo-botao"
-            data-etapa="logica"
-        >
-            <img
-                src="assets/processo-logica.png"
-                alt=""
-            >
+          <button class="processo-botao" data-etapa="logica">
+            <img src="assets/processo-logica.png" alt="" />
 
             <span>02 · Lógica</span>
-        </button>
+          </button>
 
-
-        <button
-            class="processo-botao"
-            data-etapa="implementacao"
-        >
-            <img
-                src="assets/processo-implementacao.png"
-                alt=""
-            >
+          <button class="processo-botao" data-etapa="implementacao">
+            <img src="assets/processo-implementacao.png" alt="" />
 
             <span>03 · Implementação</span>
-        </button>
-
-    </div>
-
-
-    <div class="processo-descricao">
-
-        <span id="processo-numero">
-            01
-        </span>
-
-        <h3 id="processo-titulo">
-            Esboço
-        </h3>
-
-        <p id="processo-texto">
-            Ideias começam no papel, explorando possibilidades,
-            referências e diferentes caminhos para a solução.
-        </p>
-
-    </div>
-
-</section>
-      <section id="projeto-01">
-        <span class="projeto-numero"> PROJETO 01 · 1DSM · 1º SEM. 2026 </span>
-
-        <h2>Scrum Dungeon</h2>
-
-        <div class="projeto-detalhes">
-          <div class="projeto-media">
-            <img
-              src="assets/miniatura-1-scrum-dungeon.png"
-              alt="Interface do projeto Scrum Dungeon"
-            />
-          </div>
-
-          <div class="projeto-conteudo">
-            <h3>Sobre o projeto</h3>
-
-            <p>
-              Scrum Dungeon é uma plataforma gamificada desenvolvida para tornar
-              o aprendizado da metodologia Scrum mais interativo e envolvente,
-              utilizando elementos de RPG e progressão ao longo da experiência.
-            </p>
-
-            <h3>Minha contribuição</h3>
-
-            <p>
-              Atuei como Product Owner, sendo responsável pela comunicação com o
-              cliente, organização do Product Backlog e definição das
-              prioridades do projeto.
-            </p>
-
-            <p>
-              Também participei do desenvolvimento da aplicação em diferentes
-              etapas, desde a prototipação, definição dos fluxos de tela e
-              criação da identidade visual até a implementação do front-end.
-            </p>
-
-            <p>
-              No back-end, contribuí com a arquitetura e organização do projeto
-              em camadas e módulos, além do desenvolvimento de funcionalidades
-              como o sistema de progressão, mapa e lógica de jogo.
-            </p>
-          </div>
+          </button>
         </div>
 
-        <div class="projeto-galeria">
-          <img
-            src="assets/miniatura-2-scrum-dungeon.png"
-            alt="Tela do projeto Scrum Dungeon"
-          />
+        <div class="processo-descricao">
+          <h3 id="processo-titulo">Esboço</h3>
 
-          <img
-            src="assets/miniatura-3-scrum-dungeon.png"
-            alt="Tela do projeto Scrum Dungeon"
-          />
+          <p id="processo-texto">
+            Ideias começam no papel, explorando possibilidades, referências e
+            diferentes caminhos para a solução.
+          </p>
+        </div>
+      </section>
+      <section id="projeto-01">
+        <div class="projeto-cabecalho">
+          <span class="projeto-numero">
+            PROJETO 01 · ACADÊMICO · 1DSM · 1º SEM. 2026
+          </span>
+
+          <h2>Scrum Dungeon</h2>
+        </div>
+
+        <div class="projeto-case">
+          <!-- LADO ESQUERDO: MÍDIA -->
+
+          <div class="projeto-visual">
+            <div class="projeto-media-principal">
+              <div class="projeto-video">
+                <iframe
+                  src="https://www.youtube.com/embed/iSikcW3CIZE?"
+                  title="Scrum Dungeon - Sprint 3"
+                  loading="lazy"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  allowfullscreen
+                >
+                </iframe>
+              </div>
+            </div>
+
+            <div class="projeto-miniaturas">
+              <img
+                src="./assets/miniatura-2-scrum-dungeon.png"
+                alt="Tela do Scrum Dungeon"
+              />
+
+              <img
+                src="./assets/miniatura-3-scrum-dungeon.png"
+                alt="Tela do Scrum Dungeon"
+              />
+
+              <img
+                src="./assets/miniatura-2-scrum-dungeon.png"
+                alt="Tela do Scrum Dungeon"
+              />
+
+              <img
+                src="./assets/miniatura-3-scrum-dungeon.png"
+                alt="Tela do Scrum Dungeon"
+              />
+            </div>
+          </div>
+
+          <!-- LADO DIREITO: CASE -->
+
+          <div class="projeto-conteudo">
+            <div class="projeto-bloco">
+              <span class="projeto-label"> SOBRE O PROJETO </span>
+
+              <p>
+                Scrum Dungeon é uma plataforma gamificada desenvolvida para
+                tornar o aprendizado da metodologia Scrum mais interativo e
+                envolvente, utilizando elementos de RPG e progressão ao longo da
+                experiência.
+              </p>
+            </div>
+
+            <div class="projeto-bloco contribuicao">
+              <span class="projeto-label"> MINHA CONTRIBUIÇÃO </span>
+
+              <p>
+                Atuei como Product Owner, sendo responsável pela comunicação com
+                o cliente, organização do Product Backlog e definição das
+                prioridades do projeto.
+              </p>
+
+              <p>
+                Também participei da prototipação, definição dos fluxos,
+                identidade visual e implementação do front-end, além da
+                arquitetura e de funcionalidades do back-end.
+              </p>
+
+              <div class="depoimento-projeto">
+                <button
+                  class="avatar-botao"
+                  id="avatar-botao"
+                  aria-expanded="false"
+                  aria-controls="avatar-painel"
+                >
+                  <img src="./assets/avatar-projeto-scrum-dungeon.png" alt="" />
+
+                  <span> Saiba o que achei do projeto </span>
+                </button>
+
+                <div class="avatar-painel" id="avatar-painel" role="status">
+                  <p>
+                    Foi muito divertido contribuir em todas as etapas desse
+                    projeto, aplicando o método Scrum enquanto pensávamos em
+                    como construir uma experiência imersiva que ensinasse sobre
+                    o próprio método.
+                  </p>
+
+                  <p>
+                    Trabalhar em uma grande equipe foi desafiador e só foi
+                    possível graças à nossa organização, comunicação e muita
+                    adaptação.
+                  </p>
+
+                  <p>
+                    O aprendizado que fica é sobre saber priorizar as demandas,
+                    manter a transparência e trabalhar em coletivo.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="projeto-tecnico">
           <div>
-            <h3>Tecnologias</h3>
+            <span class="projeto-label"> TECNOLOGIAS </span>
 
             <p>
               HTML · CSS · JavaScript · EJS · Node.js · Express · PostgreSQL ·
@@ -375,12 +583,12 @@
           </div>
 
           <div>
-            <h3>Arquitetura e desenvolvimento</h3>
+            <span class="projeto-label"> ARQUITETURA E DESENVOLVIMENTO </span>
 
             <p>
               Renderização com EJS, lógica de negócio centralizada no servidor,
-              banco de dados PostgreSQL com DDL/DML explícitos e fluxo de
-              versionamento baseado em Git Flow com Pull Requests.
+              banco PostgreSQL com DDL/DML explícitos e fluxo de versionamento
+              baseado em Git Flow com Pull Requests.
             </p>
           </div>
         </div>
@@ -397,13 +605,37 @@
     </main>
 
     <footer id="contato">
-      <p>Tem um projeto ou quer conversar?</p>
+      <div class="contato-conteudo">
+        <img class="contato-avatar" src="./assets/sm3.png" alt="Vitor Hirch" />
 
-      <h2>Vamos nos conectar.</h2>
+        <div class="contato-texto">
+          <span class="secao-label"> CONTATO </span>
 
-      <div class="contato-links">
-        <a href="#" target="_blank">GitHub ↗</a>
-        <a href="#" target="_blank">LinkedIn ↗</a>
+          <h2>Vamos conversar?</h2>
+
+          <p>
+            Estou sempre aberto a trocar ideias sobre projetos, tecnologia e
+            novas possibilidade.
+          </p>
+
+          <div class="contato-links">
+            <a
+              href="https://github.com/vitorhirch"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/vitor-hirch/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn ↗
+            </a>
+          </div>
+        </div>
       </div>
 
       <small>
@@ -412,5 +644,5 @@
     </footer>
   </body>
 
-  <script src="script.js"></script>
+  <script src="./script.js"></script>
 </html>
