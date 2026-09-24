@@ -26,7 +26,7 @@
         alt=""
       />
 
-      <h1 class="hero-nome">
+      <h1 class="hero-nome fonte-tech">
         <span>VITOR </span>
         <span>HIRCH</span>
       </h1>
@@ -216,7 +216,7 @@
 
                 <img
                   class="trajetoria-cap cap-02"
-                  src="./assets/cap.png"
+                  src="./assets/cap2.png"
                   alt=""
                   aria-hidden="true"
                 />
@@ -237,12 +237,19 @@
             </div>
 
             <div class="skills-mapa">
-              <!-- NÚCLEO -->
+              <!-- camada onde o JavaScript desenhará as conexões -->
+              <svg
+                class="skills-conexoes"
+                id="skills-conexoes"
+                aria-hidden="true"
+              ></svg>
+
               <button class="skill-node skill-centro" data-skill="centro">
                 <span>VH</span>
                 <small>Design + Tecnologia</small>
               </button>
 
+              <!-- restante das habilidades... -->
               <!-- =====================
          DESENVOLVIMENTO
     ====================== -->
@@ -358,8 +365,74 @@
                 <h3 id="skill-popover-titulo"></h3>
 
                 <p id="skill-popover-texto"></p>
-                
               </div>
+              <article
+                class="character-sheet"
+                id="character-sheet"
+                aria-hidden="true"
+              >
+                <button
+                  class="character-sheet-fechar"
+                  id="character-sheet-fechar"
+                  type="button"
+                  aria-label="Fechar ficha"
+                >
+                  ×
+                </button>
+
+                <header class="character-sheet-header">
+                  <div class="character-sheet-identidade">
+                    <span class="character-sheet-label">PLAYER PROFILE</span>
+
+                    <h3>Vitor Hirch</h3>
+
+                    <p>Desenvolvedor Multidisciplinar</p>
+
+                    <span class="character-sheet-subclasse">
+                      SUBCLASSE · ARTISTA
+                    </span>
+                  </div>
+
+                  <div class="character-sheet-avatar">VH</div>
+                </header>
+
+                <div class="character-sheet-status">
+                  <span>STATUS / ATRIBUTOS</span>
+
+                  <div
+                    class="character-sheet-radar"
+                    id="character-sheet-radar"
+                    aria-label="Radar de habilidades"
+                  >
+                    <!-- Vamos construir o radar aqui -->
+                  </div>
+                </div>
+
+                <div class="character-sheet-habilidades">
+                  <article class="character-habilidade">
+                    <span>HABILIDADE ESPECIAL 01</span>
+
+                    <h4>✦ Pensamento Criativo</h4>
+
+                    <p>
+                      Conectar arte, design e tecnologia para encontrar caminhos
+                      não óbvios e transformar problemas em soluções funcionais
+                      e expressivas.
+                    </p>
+                  </article>
+
+                  <article class="character-habilidade">
+                    <span>HABILIDADE ESPECIAL 02</span>
+
+                    <h4>✦ Visão Multidisciplinar</h4>
+
+                    <p>
+                      Transitar entre experiência, interface e implementação,
+                      compreendendo o produto por diferentes perspectivas.
+                    </p>
+                  </article>
+                </div>
+              </article>
             </div>
 
             <!-- descrição que depois será alterada pelo JavaScript -->
@@ -385,29 +458,69 @@
 
           <!-- FORMAÇÃO -->
           <div class="sobre-painel" id="formacao">
-            <div class="formacao-grid">
-              <article>
-                <span>2026 — 2028</span>
-                <h3>Desenvolvimento de Software Multiplataforma</h3>
-                <p>FATEC Jacareí</p>
+            <div class="formacao-timeline">
+              <article class="formacao-item">
+                <div class="formacao-marcador">
+                  <span></span>
+                </div>
+
+                <div class="formacao-periodo">2021 — 2023</div>
+
+                <div class="formacao-conteudo">
+                  <span>FORMAÇÃO ACADÊMICA</span>
+
+                  <h3>Design de Produto</h3>
+
+                  <p>Universidade Anhembi Morumbi</p>
+                </div>
               </article>
 
-              <article>
-                <span>2021 — 2023</span>
-                <h3>Design de Produto</h3>
-                <p>Anhembi Morumbi</p>
+              <article class="formacao-item">
+                <div class="formacao-marcador">
+                  <span></span>
+                </div>
+
+                <div class="formacao-periodo">2022 — 2023</div>
+
+                <div class="formacao-conteudo">
+                  <span>FORMAÇÃO COMPLEMENTAR</span>
+
+                  <h3>Motion Design Publicitário</h3>
+
+                  <p>Motion Insider</p>
+                </div>
               </article>
 
-              <article>
-                <span>2024</span>
-                <h3>Trilha UX Design</h3>
-                <p>Programa Desenvolve · Grupo Boticário</p>
+              <article class="formacao-item">
+                <div class="formacao-marcador">
+                  <span></span>
+                </div>
+
+                <div class="formacao-periodo">2024</div>
+
+                <div class="formacao-conteudo">
+                  <span>FORMAÇÃO COMPLEMENTAR</span>
+
+                  <h3>UX Design</h3>
+
+                  <p>Projeto Desenvolve — Grupo Boticário + Alura</p>
+                </div>
               </article>
 
-              <article>
-                <span>2024</span>
-                <h3>Formação Figma & UX Design</h3>
-                <p>Alura</p>
+              <article class="formacao-item formacao-item-atual">
+                <div class="formacao-marcador">
+                  <span></span>
+                </div>
+
+                <div class="formacao-periodo">2026 — 2028</div>
+
+                <div class="formacao-conteudo">
+                  <span>FORMAÇÃO ATUAL</span>
+
+                  <h3>Desenvolvimento de Software Multiplataforma</h3>
+
+                  <p>FATEC Jacareí</p>
+                </div>
               </article>
             </div>
           </div>
@@ -451,6 +564,10 @@
         </div>
       </section>
       <section id="projeto-01">
+        <!-- =========================
+       CABEÇALHO
+  ========================== -->
+
         <div class="projeto-cabecalho">
           <span class="projeto-numero">
             PROJETO 01 · ACADÊMICO · 1DSM · 1º SEM. 2026
@@ -459,188 +576,311 @@
           <h2>Scrum Dungeon</h2>
         </div>
 
+        <!-- =========================
+       VISÃO GERAL
+  ========================== -->
+
         <div class="projeto-case">
-          <!-- LADO ESQUERDO: MÍDIA -->
-
-          <div class="projeto-visual">
-            <div class="projeto-media-principal">
-              <div class="projeto-video">
-                <iframe
-                  src="https://www.youtube.com/embed/iSikcW3CIZE?"
-                  title="Scrum Dungeon - Sprint 3"
-                  loading="lazy"
-                  allow="
-                    accelerometer;
-                    autoplay;
-                    clipboard-write;
-                    encrypted-media;
-                    gyroscope;
-                    picture-in-picture;
-                    web-share;
-                  "
-                  allowfullscreen
-                >
-                </iframe>
-              </div>
-            </div>
-
-            <div class="projeto-miniaturas">
-              <img
-                src="./assets/miniatura-2-scrum-dungeon.png"
-                alt="Tela do Scrum Dungeon"
-              />
-
-              <img
-                src="./assets/miniatura-3-scrum-dungeon.png"
-                alt="Tela do Scrum Dungeon"
-              />
-
-              <img
-                src="./assets/miniatura-2-scrum-dungeon.png"
-                alt="Tela do Scrum Dungeon"
-              />
-
-              <img
-                src="./assets/miniatura-3-scrum-dungeon.png"
-                alt="Tela do Scrum Dungeon"
-              />
-            </div>
+          <div class="projeto-media-principal">
+            <img
+              src="./assets/logo_scrum_dungeon_capa.png"
+              alt="Scrum Dungeon"
+            />
           </div>
-
-          <!-- LADO DIREITO: CASE -->
 
           <div class="projeto-conteudo">
             <div class="projeto-bloco">
-              <span class="projeto-label"> SOBRE O PROJETO </span>
+              <h3>O PROJETO</h3>
 
               <p>
-                Scrum Dungeon é uma plataforma gamificada desenvolvida para
-                tornar o aprendizado da metodologia Scrum mais interativo e
-                envolvente, utilizando elementos de RPG e progressão ao longo da
-                experiência.
+                Scrum Dungeon é uma plataforma gamificada criada para ensinar os
+                conceitos e práticas da metodologia Scrum através de uma
+                experiência inspirada em RPG.
               </p>
             </div>
 
-            <div class="projeto-bloco contribuicao">
-              <span class="projeto-label"> MINHA CONTRIBUIÇÃO </span>
+            <div class="projeto-bloco">
+              <h3>MEU PAPEL</h3>
 
               <p>
-                Atuei como Product Owner, sendo responsável pela comunicação com
-                o cliente, organização do Product Backlog e definição das
-                prioridades do projeto.
+                Atuei como Product Owner, fazendo a comunicação com o cliente e
+                auxiliando na definição e priorização do backlog. Também
+                participei da prototipação, criação dos fluxos, identidade
+                visual, desenvolvimento front-end, arquitetura e funcionalidades
+                do back-end.
               </p>
+            </div>
+
+            <div class="projeto-bloco">
+              <h3>TECNOLOGIAS</h3>
 
               <p>
-                Também participei da prototipação, definição dos fluxos,
-                identidade visual e implementação do front-end, além da
-                arquitetura e de funcionalidades do back-end.
+                HTML · CSS · JavaScript · EJS · Node.js · Express · PostgreSQL ·
+                Figma
               </p>
+            </div>
 
-              <div class="depoimento-projeto">
-                <button
-                  class="avatar-botao"
-                  id="avatar-botao"
-                  aria-expanded="false"
-                  aria-controls="avatar-painel"
-                >
-                  <img src="./assets/avatar-projeto-scrum-dungeon.png" alt="" />
+            <a
+              class="projeto-link"
+              href="https://github.com/octopusCode26/scrum-dungeon"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver projeto no GitHub ↗
+            </a>
+          </div>
+        </div>
 
-                  <span> Saiba o que achei do projeto </span>
-                </button>
+        <!-- =========================
+       PROCESSO / SPRINTS
+  ========================== -->
 
-                <div class="avatar-painel" id="avatar-painel" role="status">
-                  <p>
-                    Foi muito divertido contribuir em todas as etapas desse
-                    projeto, aplicando o método Scrum enquanto pensávamos em
-                    como construir uma experiência imersiva que ensinasse sobre
-                    o próprio método.
-                  </p>
+        <div class="scrum-showcase">
+          <nav class="scrum-sprints" aria-label="Sprints do projeto">
+            <button
+              class="scrum-sprint-botao ativo"
+              type="button"
+              data-sprint="1"
+            >
+              <span>01</span>
 
-                  <p>
-                    Trabalhar em uma grande equipe foi desafiador e só foi
-                    possível graças à nossa organização, comunicação e muita
-                    adaptação.
-                  </p>
-
-                  <p>
-                    O aprendizado que fica é sobre saber priorizar as demandas,
-                    manter a transparência e trabalhar em coletivo.
-                  </p>
-                </div>
+              <div>
+                <strong>Planejar</strong>
+                <small>Arquitetura e documentação</small>
               </div>
+            </button>
+
+            <button class="scrum-sprint-botao" type="button" data-sprint="2">
+              <span>02</span>
+
+              <div>
+                <strong>Construir</strong>
+                <small>Experiência e sistemas</small>
+              </div>
+            </button>
+
+            <button class="scrum-sprint-botao" type="button" data-sprint="3">
+              <span>03</span>
+
+              <div>
+                <strong>Refinar</strong>
+                <small>Identidade e interação</small>
+              </div>
+            </button>
+          </nav>
+
+          <!-- INFORMAÇÕES DA SPRINT -->
+
+          <div class="scrum-sprint-info">
+            <div class="scrum-sprint-cabecalho">
+              <span id="scrum-sprint-numero"> SPRINT 01 </span>
+
+              <h3 id="scrum-sprint-titulo">Planejar</h3>
+            </div>
+
+            <p id="scrum-sprint-descricao">
+              Na primeira Sprint estruturamos as bases do projeto. Definimos o
+              fluxo da experiência, casos de uso, prototipação e arquitetura,
+              além de alinharmos a organização da equipe dentro da metodologia
+              Scrum.
+            </p>
+          </div>
+
+          <!-- VÍDEO -->
+
+          <div class="scrum-video">
+            <iframe
+              id="scrum-video"
+              src="https://www.youtube.com/embed/0MVQDj3I3wc"
+              title="Scrum Dungeon — Sprint 1"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+              "
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <!-- GALERIA -->
+
+          <div class="scrum-galeria">
+            <div class="scrum-galeria-cabecalho">
+              <span>REGISTROS DA SPRINT</span>
+
+              <span id="scrum-galeria-contador"> 01 / 03 </span>
+            </div>
+
+            <div class="scrum-galeria-visual">
+              <button
+                class="scrum-galeria-seta"
+                id="scrum-galeria-anterior"
+                type="button"
+                aria-label="Imagem anterior"
+              >
+                ←
+              </button>
+
+              <figure class="scrum-galeria-item">
+                <img
+                  id="scrum-galeria-imagem"
+                  src="./assets/scrum-dungeon/sprint-1-fluxo-geral.png"
+                  alt="Fluxo geral do Scrum Dungeon"
+                />
+
+                <figcaption id="scrum-galeria-legenda">
+                  Fluxo geral da experiência
+                </figcaption>
+              </figure>
+
+              <button
+                class="scrum-galeria-seta"
+                id="scrum-galeria-proxima"
+                type="button"
+                aria-label="Próxima imagem"
+              >
+                →
+              </button>
             </div>
           </div>
         </div>
+
+        <!-- =========================
+       MINHA VISÃO
+  ========================== -->
+
+        <div class="depoimento-projeto">
+          <button class="avatar-botao" id="avatar-botao" type="button">
+            <img src="./assets/avatar-projeto-scrum-dungeon.png" alt="" />
+
+            <span> Minha visão sobre o projeto ↘ </span>
+          </button>
+
+          <div class="avatar-painel" id="avatar-painel">
+            <p>
+              Foi muito divertido contribuir em todas as etapas desse projeto,
+              aplicando o método Scrum enquanto pensávamos em como construir uma
+              experiência imersiva que ensinasse sobre o próprio método.
+            </p>
+
+            <p>
+              Trabalhar em uma grande equipe foi desafiador e só foi possível
+              graças à nossa organização, comunicação e muita adaptação.
+            </p>
+
+            <p>
+              O aprendizado que fica é sobre saber priorizar as demandas, manter
+              a transparência e trabalhar em coletivo.
+            </p>
+          </div>
+        </div>
+
+        <!-- =========================
+       DETALHES TÉCNICOS
+  ========================== -->
 
         <div class="projeto-tecnico">
-          <div>
-            <span class="projeto-label"> TECNOLOGIAS </span>
+          <div class="projeto-tecnico-conteudo">
+            <div class="projeto-tecnico-cabecalho">
+              <span class="projeto-label"> ARQUITETURA E DESENVOLVIMENTO </span>
 
-            <p>
-              HTML · CSS · JavaScript · EJS · Node.js · Express · PostgreSQL ·
-              Figma
-            </p>
-          </div>
+              <h3>Estrutura pensada para crescer com o projeto.</h3>
+            </div>
 
-          <div>
-            <span class="projeto-label"> ARQUITETURA E DESENVOLVIMENTO </span>
+            <div class="projeto-tecnico-texto">
+              <p>
+                Devido ao tamanho e à complexidade do projeto, organizamos o
+                back-end de forma modular, separando responsabilidades por
+                domínio.
+              </p>
 
-            <p>
-              Renderização com EJS, lógica de negócio centralizada no servidor,
-              banco PostgreSQL com DDL/DML explícitos e fluxo de versionamento
-              baseado em Git Flow com Pull Requests.
-            </p>
+              <p>
+                Dentro de cada módulo, aplicamos uma arquitetura em camadas, com
+                Controllers, Services e Repositories bem definidos, separando o
+                fluxo das requisições, as regras de negócio e o acesso aos
+                dados.
+              </p>
+
+              <p>
+                A aplicação utiliza renderização com EJS, banco de dados
+                PostgreSQL e um fluxo de versionamento baseado em Git Flow e
+                Pull Requests.
+              </p>
+            </div>
           </div>
         </div>
-
-        <a
-          class="projeto-link"
-          href="https://github.com/octopusCode26/scrum-dungeon"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Ver projeto no GitHub ↗
-        </a>
       </section>
+
+      <div class="scrum-lightbox" id="scrum-lightbox" aria-hidden="true">
+        <button
+          class="scrum-lightbox-fechar"
+          id="scrum-lightbox-fechar"
+          type="button"
+          aria-label="Fechar imagem ampliada"
+        >
+          ×
+        </button>
+
+        <figure class="scrum-lightbox-conteudo">
+          <img id="scrum-lightbox-imagem" src="" alt="" />
+
+          <figcaption id="scrum-lightbox-legenda"></figcaption>
+        </figure>
+      </div>
     </main>
 
     <footer id="contato">
       <div class="contato-conteudo">
-        <img class="contato-avatar" src="./assets/sm3.png" alt="Vitor Hirch" />
-
-        <div class="contato-texto">
-          <span class="secao-label"> CONTATO </span>
+        <div class="contato-principal">
+          <span class="secao-label">CONTATO</span>
 
           <h2>Vamos conversar?</h2>
 
           <p>
             Estou sempre aberto a trocar ideias sobre projetos, tecnologia e
-            novas possibilidade.
+            novas possibilidades.
           </p>
+        </div>
 
-          <div class="contato-links">
-            <a
-              href="https://github.com/vitorhirch"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub ↗
-            </a>
+        <div class="contato-acoes">
+          <a
+            href="https://github.com/vitorhirch"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>GITHUB</span>
+            <span>↗</span>
+          </a>
 
-            <a
-              href="https://www.linkedin.com/in/vitor-hirch/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn ↗
-            </a>
-          </div>
+          <a
+            href="https://www.linkedin.com/in/vitor-hirch/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>LINKEDIN</span>
+            <span>↗</span>
+          </a>
         </div>
       </div>
 
-      <small>
-        Vitor Hirch · Desenvolvimento de Software Multiplataforma · 2026
-      </small>
+      <div class="contato-rodape">
+        <div class="contato-identidade">
+          <img
+            class="contato-avatar"
+            src="./assets/sm3.png"
+            alt="Vitor Hirch"
+          />
+
+          <small>
+            Vitor Hirch · Desenvolvimento de Software Multiplataforma · 2026
+          </small>
+        </div>
+
+        <span class="contato-assinatura"> ENTRE O DESENHO E O CÓDIGO. </span>
+      </div>
     </footer>
   </body>
 

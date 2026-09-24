@@ -16,6 +16,11 @@ botoesSobre.forEach((botao) => {
     botao.classList.add("ativo");
 
     document.getElementById(conteudo).classList.add("ativo");
+    if (conteudo === "habilidades") {
+      requestAnimationFrame(() => {
+        desenharConexoesPrincipais();
+      });
+    }
   });
 });
 
@@ -57,7 +62,6 @@ botoesProcesso.forEach((botao) => {
 
     botao.classList.add("ativo");
 
-   
     processoTitulo.textContent = conteudo.titulo;
 
     processoTexto.textContent = conteudo.texto;
@@ -281,7 +285,9 @@ const popoverTitulo = document.querySelector("#skill-popover-titulo");
 
 const popoverTexto = document.querySelector("#skill-popover-texto");
 
+const characterSheet = document.querySelector("#character-sheet");
 
+const characterSheetFechar = document.querySelector("#character-sheet-fechar");
 
 botoesSkills.forEach((botao) => {
   botao.addEventListener("click", (event) => {
@@ -289,6 +295,15 @@ botoesSkills.forEach((botao) => {
 
     const nomeSkill = botao.dataset.skill;
     const skillSelecionada = dadosSkills[nomeSkill];
+
+    if (nomeSkill === "centro") {
+      characterSheet.classList.add("ativo");
+      skillsMapa.classList.add("character-aberto");
+
+      characterSheet.setAttribute("aria-hidden", "false");
+
+      return;
+    }
 
     if (!skillSelecionada) {
       return;
@@ -301,6 +316,43 @@ botoesSkills.forEach((botao) => {
     });
 
     botao.classList.add("skill-ativa");
+    document.querySelectorAll(".skill-conexao").forEach((linha) => {
+      linha.classList.remove("conexao-ativa");
+    });
+
+    document
+      .querySelectorAll(`.skill-conexao[data-skill="${nomeSkill}"]`)
+      .forEach((linha) => {
+        linha.classList.add("conexao-ativa");
+      });
+
+    let classeCategoria;
+
+    if (skillSelecionada.categoria === "DESENVOLVIMENTO") {
+      classeCategoria = "conexao-dev";
+    }
+
+    if (skillSelecionada.categoria === "DESIGN & UX") {
+      classeCategoria = "conexao-design";
+    }
+
+    if (skillSelecionada.categoria === "PROCESSO & ARQUITETURA") {
+      classeCategoria = "conexao-processo";
+    }
+
+    document
+      .querySelectorAll(`.${classeCategoria}.conexao-tronco`)
+      .forEach((linha) => {
+        linha.classList.add("conexao-ativa");
+      });
+
+    document.querySelectorAll(".conexao-espinha").forEach((linha) => {
+      const skillsDaLinha = linha.dataset.skills?.split(" ") || [];
+
+      if (skillsDaLinha.includes(nomeSkill)) {
+        linha.classList.add("conexao-ativa");
+      }
+    });
 
     /* coloca o conteúdo no balão */
 
@@ -349,6 +401,15 @@ botoesSkills.forEach((botao) => {
   });
 });
 
+characterSheetFechar.addEventListener("click", (event) => {
+  event.stopPropagation();
+
+  characterSheet.classList.remove("ativo");
+  skillsMapa.classList.remove("character-aberto");
+
+  characterSheet.setAttribute("aria-hidden", "true");
+});
+
 skillsMapa.addEventListener("click", () => {
   skillPopover.classList.remove("ativo");
 
@@ -356,3 +417,567 @@ skillsMapa.addEventListener("click", () => {
     item.classList.remove("skill-ativa");
   });
 });
+
+// =========================
+// SKILL TREE / CONEXÕES
+// =========================
+
+const svgConexoes = document.querySelector("#skills-conexoes");
+
+const skillCentro = document.querySelector(".skill-centro");
+
+const grupoDev = document.querySelector(".grupo-dev");
+
+const grupoDesign = document.querySelector(".grupo-design");
+
+const grupoProcesso = document.querySelector(".grupo-processo");
+
+function encontrarCentro(elemento) {
+  const elementoRect = elemento.getBoundingClientRect();
+  const mapaRect = skillsMapa.getBoundingClientRect();
+
+  return {
+    x: elementoRect.left - mapaRect.left + elementoRect.width / 2,
+
+    y: elementoRect.top - mapaRect.top + elementoRect.height / 2,
+  };
+}
+
+function encontrarHub(grupo, direcao) {
+  const grupoRect = grupo.getBoundingClientRect();
+  const mapaRect = skillsMapa.getBoundingClientRect();
+
+  const centroX = grupoRect.left - mapaRect.left + grupoRect.width / 2;
+
+  const centroY = grupoRect.top - mapaRect.top + grupoRect.height / 2;
+
+  if (direcao === "direita") {
+    return {
+      x: grupoRect.right - mapaRect.left + 25,
+      y: centroY,
+    };
+  }
+
+  if (direcao === "esquerda") {
+    return {
+      x: grupoRect.left - mapaRect.left - 25,
+      y: centroY,
+    };
+  }
+
+  return {
+    x: centroX,
+    y: grupoRect.top - mapaRect.top - 25,
+  };
+}
+
+function criarLinha(inicio, fim, classe = "", skill = "") {
+  const linha = document.createElementNS("http://www.w3.org/2000/svg", "line");
+
+  linha.setAttribute("x1", inicio.x);
+  linha.setAttribute("y1", inicio.y);
+  linha.setAttribute("x2", fim.x);
+  linha.setAttribute("y2", fim.y);
+
+  linha.setAttribute("class", `skill-conexao ${classe}`);
+
+  if (skill) {
+    linha.dataset.skill = skill;
+  }
+
+  svgConexoes.appendChild(linha);
+}
+function conectarGrupoAoHub(grupo, hub, classe) {
+  const skills = [...grupo.querySelectorAll(".skill-node")];
+
+  const centros = skills.map((skill) => {
+    return {
+      ponto: encontrarCentro(skill),
+      nome: skill.dataset.skill,
+    };
+  });
+
+  // =========================
+  // DESENVOLVIMENTO
+  // =========================
+
+  if (grupo.classList.contains("grupo-dev")) {
+    const xEspinha = hub.x - 45;
+
+    const menorY = Math.min(...centros.map((centro) => centro.ponto.y));
+
+    const maiorY = Math.max(...centros.map((centro) => centro.ponto.y));
+
+    // espinha dividida em segmentos
+    for (let i = 0; i < centros.length - 1; i++) {
+      const atual = centros[i];
+      const proximo = centros[i + 1];
+
+      const segmento = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "line",
+      );
+
+      segmento.setAttribute("x1", xEspinha);
+      segmento.setAttribute("y1", atual.ponto.y);
+      segmento.setAttribute("x2", xEspinha);
+      segmento.setAttribute("y2", proximo.ponto.y);
+
+      segmento.setAttribute("class", `skill-conexao ${classe} conexao-espinha`);
+
+      const menorSegmentoY = Math.min(atual.ponto.y, proximo.ponto.y);
+
+      const maiorSegmentoY = Math.max(atual.ponto.y, proximo.ponto.y);
+
+      const skillsDoSegmento = centros
+        .filter((skill) => {
+          const skillY = skill.ponto.y;
+
+          if (skillY < hub.y) {
+            return menorSegmentoY >= skillY && menorSegmentoY < hub.y;
+          }
+
+          if (skillY > hub.y) {
+            return maiorSegmentoY <= skillY && maiorSegmentoY > hub.y;
+          }
+
+          return false;
+        })
+        .map((skill) => skill.nome);
+
+      segmento.dataset.skills = skillsDoSegmento.join(" ");
+
+      svgConexoes.appendChild(segmento);
+    }
+
+    // cada skill → espinha
+    centros.forEach((skill) => {
+      criarLinha(
+        skill.ponto,
+        {
+          x: xEspinha,
+          y: skill.ponto.y,
+        },
+        classe,
+        skill.nome,
+      );
+    });
+
+    // espinha → hub
+    criarLinha(
+      {
+        x: xEspinha,
+        y: hub.y,
+      },
+      hub,
+      `${classe} conexao-tronco`,
+    );
+
+    return;
+  }
+
+  // =========================
+  // DESIGN
+  // =========================
+
+  if (grupo.classList.contains("grupo-design")) {
+    const xEspinha = hub.x + 45;
+
+    const menorY = Math.min(...centros.map((centro) => centro.ponto.y));
+
+    const maiorY = Math.max(...centros.map((centro) => centro.ponto.y));
+
+    // espinha dividida em segmentos
+    for (let i = 0; i < centros.length - 1; i++) {
+      const atual = centros[i];
+      const proximo = centros[i + 1];
+
+      const segmento = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "line",
+      );
+
+      segmento.setAttribute("x1", xEspinha);
+      segmento.setAttribute("y1", atual.ponto.y);
+      segmento.setAttribute("x2", xEspinha);
+      segmento.setAttribute("y2", proximo.ponto.y);
+
+      segmento.setAttribute("class", `skill-conexao ${classe} conexao-espinha`);
+
+      const menorSegmentoY = Math.min(atual.ponto.y, proximo.ponto.y);
+
+      const maiorSegmentoY = Math.max(atual.ponto.y, proximo.ponto.y);
+
+      const skillsDoSegmento = centros
+        .filter((skill) => {
+          const skillY = skill.ponto.y;
+
+          if (skillY < hub.y) {
+            return menorSegmentoY >= skillY && menorSegmentoY < hub.y;
+          }
+
+          if (skillY > hub.y) {
+            return maiorSegmentoY <= skillY && maiorSegmentoY > hub.y;
+          }
+
+          return false;
+        })
+        .map((skill) => skill.nome);
+
+      segmento.dataset.skills = skillsDoSegmento.join(" ");
+
+      svgConexoes.appendChild(segmento);
+    }
+
+    centros.forEach((skill) => {
+      criarLinha(
+        {
+          x: xEspinha,
+          y: skill.ponto.y,
+        },
+        skill.ponto,
+        classe,
+        skill.nome,
+      );
+    });
+
+    criarLinha(
+      hub,
+      {
+        x: xEspinha,
+        y: hub.y,
+      },
+      `${classe} conexao-tronco`,
+    );
+    return;
+  }
+
+  // =========================
+  // PROCESSO
+  // =========================
+
+  centros.forEach((skill) => {
+    const centroSkill = skill.ponto;
+
+    const caminho = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "path",
+    );
+
+    const pontoIntermediarioY = hub.y + 35;
+
+    const desenho = `
+    M ${hub.x} ${hub.y}
+    L ${hub.x} ${pontoIntermediarioY}
+    L ${centroSkill.x} ${centroSkill.y}
+  `;
+
+    caminho.setAttribute("d", desenho);
+
+    caminho.setAttribute("class", `skill-conexao ${classe}`);
+
+    caminho.dataset.skill = skill.nome;
+
+    svgConexoes.appendChild(caminho);
+  });
+}
+function desenharConexoesPrincipais() {
+  svgConexoes.innerHTML = "";
+
+  const larguraMapa = skillsMapa.clientWidth;
+  const alturaMapa = skillsMapa.clientHeight;
+
+  svgConexoes.setAttribute("viewBox", `0 0 ${larguraMapa} ${alturaMapa}`);
+
+  svgConexoes.setAttribute("preserveAspectRatio", "none");
+
+  const centro = encontrarCentro(skillCentro);
+
+  const hubDev = encontrarHub(grupoDev, "direita");
+
+  const hubDesign = encontrarHub(grupoDesign, "esquerda");
+
+  const hubProcesso = encontrarHub(grupoProcesso, "topo");
+
+  criarLinha(centro, hubDev, "conexao-dev conexao-tronco");
+
+  criarLinha(centro, hubDesign, "conexao-design conexao-tronco");
+
+  criarLinha(centro, hubProcesso, "conexao-processo conexao-tronco");
+
+  conectarGrupoAoHub(grupoDev, hubDev, "conexao-dev");
+
+  conectarGrupoAoHub(grupoDesign, hubDesign, "conexao-design");
+
+  conectarGrupoAoHub(grupoProcesso, hubProcesso, "conexao-processo");
+}
+
+// Centro principal: VH
+const centro = encontrarCentro(skillCentro);
+
+// Hubs invisíveis de cada área
+const hubDev = encontrarHub(grupoDev, "direita");
+
+const hubDesign = encontrarHub(grupoDesign, "esquerda");
+
+const hubProcesso = encontrarHub(grupoProcesso, "topo");
+
+// VH → áreas
+criarLinha(centro, hubDev, "conexao-dev");
+
+criarLinha(centro, hubDesign, "conexao-design");
+
+criarLinha(centro, hubProcesso, "conexao-processo");
+
+// áreas → habilidades
+conectarGrupoAoHub(grupoDev, hubDev, "conexao-dev");
+
+conectarGrupoAoHub(grupoDesign, hubDesign, "conexao-design");
+
+conectarGrupoAoHub(grupoProcesso, hubProcesso, "conexao-processo");
+
+desenharConexoesPrincipais();
+window.addEventListener("resize", desenharConexoesPrincipais);
+
+// ========================================
+// SCRUM DUNGEON — SPRINTS
+// ========================================
+
+const dadosSprints = {
+  1: {
+    numero: "SPRINT 01",
+    titulo: "Planejar",
+
+    descricao:
+      "Na primeira Sprint estruturamos as bases do projeto. Definimos o fluxo da experiência, casos de uso, prototipação e arquitetura, além de alinharmos a organização da equipe dentro da metodologia Scrum.",
+
+    video: "https://www.youtube.com/embed/0MVQDj3I3wc",
+
+    imagens: [
+      {
+        src: "./assets/scrum-dungeon/sprint1-esboço-inicial-ui.jpeg",
+        legenda: "Esboços iniciais da interface e estrutura de navegação",
+      },
+      {
+        src: "./assets/scrum-dungeon/sprint-1-fluxo-geral.png",
+        legenda: "Fluxo geral da experiência",
+      },
+      {
+        src: "./assets/scrum-dungeon/sprint-1-diagrama-uso.png",
+        legenda: "Diagrama de casos de uso",
+      },
+      {
+        src: "./assets/scrum-dungeon/sprint-1-diagrama-de-sequencia.png",
+        legenda: "Diagrama de sequência",
+      },
+    ],
+  },
+
+  2: {
+    numero: "SPRINT 02",
+    titulo: "Construir",
+
+    descricao:
+      "Na segunda Sprint começamos a transformar o protótipo em uma experiência funcional. Desenvolvemos os sistemas de progressão e reprovação, progressão da história, reset e liberação de capítulos, além de construirmos o primeiro capítulo e estabelecermos o tom da narrativa e as regras do jogo.",
+
+    video: "https://www.youtube.com/embed/DoX2dENC2lA",
+
+    imagens: [
+      {
+        src: "./assets/scrum-dungeon/sprint-2-sistema-aprovacao.png",
+        legenda: "Sistema de aprovação e progressão",
+      },
+      {
+        src: "./assets/scrum-dungeon/sprint-2-sistema-reprovacao.png",
+        legenda: "Sistema de reprovação",
+      },
+
+      {
+        src: "./assets/scrum-dungeon/sprint-2-mapa.png",
+        legenda: "Mapa de capítulos e sistema de progressão da experiência",
+      },
+    ],
+  },
+
+  3: {
+    numero: "SPRINT 03",
+    titulo: "Refinar",
+
+    descricao:
+      "Na terceira Sprint o foco foi finalizar e padronizar a identidade visual da experiência. Implementamos o sistema de artefatos, animações, funcionalidade de perfil e efeitos sonoros, refinando a interação e a apresentação final do Scrum Dungeon.",
+
+    video: "https://www.youtube.com/embed/iSikcW3CIZE?start=43",
+
+    imagens: [
+      {
+        src: "./assets/scrum-dungeon/sprint-3-artefato.png",
+        legenda: "Sistema de artefatos",
+      },
+      {
+        src: "./assets/scrum-dungeon/sprint-3-boss.png",
+        legenda: "Experiência e identidade visual",
+      },
+      {
+        src: "./assets/scrum-dungeon/sprint-3-mapa.png",
+        legenda: "Mapa e progressão da experiência",
+      },
+    ],
+  },
+};
+
+const botoesSprint = document.querySelectorAll(".scrum-sprint-botao");
+
+const scrumVideo = document.querySelector("#scrum-video");
+
+const scrumSprintNumero = document.querySelector("#scrum-sprint-numero");
+const scrumSprintTitulo = document.querySelector("#scrum-sprint-titulo");
+const scrumSprintDescricao = document.querySelector("#scrum-sprint-descricao");
+
+const scrumGaleriaImagem = document.querySelector("#scrum-galeria-imagem");
+const scrumGaleriaLegenda = document.querySelector("#scrum-galeria-legenda");
+const scrumGaleriaContador = document.querySelector("#scrum-galeria-contador");
+
+const scrumGaleriaAnterior = document.querySelector("#scrum-galeria-anterior");
+const scrumGaleriaProxima = document.querySelector("#scrum-galeria-proxima");
+
+let sprintAtual = 1;
+let imagemAtual = 0;
+
+function atualizarGaleria() {
+  const sprint = dadosSprints[sprintAtual];
+  const imagem = sprint.imagens[imagemAtual];
+
+  scrumGaleriaImagem.src = imagem.src;
+  scrumGaleriaImagem.alt = imagem.legenda;
+
+  scrumGaleriaLegenda.textContent = imagem.legenda;
+
+  scrumGaleriaContador.textContent = `${String(imagemAtual + 1).padStart(2, "0")} / ${String(sprint.imagens.length).padStart(2, "0")}`;
+}
+
+function atualizarSprint(numeroSprint) {
+  sprintAtual = numeroSprint;
+  imagemAtual = 0;
+
+  const sprint = dadosSprints[sprintAtual];
+
+  scrumSprintNumero.textContent = sprint.numero;
+  scrumSprintTitulo.textContent = sprint.titulo;
+  scrumSprintDescricao.textContent = sprint.descricao;
+
+  scrumVideo.src = sprint.video;
+  scrumVideo.title = `Scrum Dungeon — ${sprint.numero}`;
+
+  botoesSprint.forEach((botao) => {
+    botao.classList.toggle(
+      "ativo",
+      Number(botao.dataset.sprint) === sprintAtual,
+    );
+  });
+
+  atualizarGaleria();
+}
+
+botoesSprint.forEach((botao) => {
+  botao.addEventListener("click", () => {
+    const numeroSprint = Number(botao.dataset.sprint);
+
+    atualizarSprint(numeroSprint);
+  });
+});
+
+scrumGaleriaProxima.addEventListener("click", () => {
+  const imagens = dadosSprints[sprintAtual].imagens;
+
+  imagemAtual++;
+
+  if (imagemAtual >= imagens.length) {
+    imagemAtual = 0;
+  }
+
+  atualizarGaleria();
+});
+
+scrumGaleriaAnterior.addEventListener("click", () => {
+  const imagens = dadosSprints[sprintAtual].imagens;
+
+  imagemAtual--;
+
+  if (imagemAtual < 0) {
+    imagemAtual = imagens.length - 1;
+  }
+
+  atualizarGaleria();
+});
+
+const scrumLightbox = document.querySelector("#scrum-lightbox");
+const scrumLightboxImagem = document.querySelector("#scrum-lightbox-imagem");
+const scrumLightboxLegenda = document.querySelector("#scrum-lightbox-legenda");
+const scrumLightboxFechar = document.querySelector("#scrum-lightbox-fechar");
+
+function abrirLightbox() {
+  scrumLightboxImagem.src = scrumGaleriaImagem.src;
+  scrumLightboxImagem.alt = scrumGaleriaImagem.alt;
+
+  scrumLightboxLegenda.textContent = scrumGaleriaLegenda.textContent;
+
+  scrumLightbox.classList.add("ativo");
+  scrumLightbox.setAttribute("aria-hidden", "false");
+
+  document.body.style.overflow = "hidden";
+}
+
+function fecharLightbox() {
+  scrumLightbox.classList.remove("ativo");
+  scrumLightbox.setAttribute("aria-hidden", "true");
+
+  document.body.style.overflow = "";
+}
+
+scrumGaleriaImagem.addEventListener("click", abrirLightbox);
+
+scrumLightboxFechar.addEventListener("click", fecharLightbox);
+
+scrumLightbox.addEventListener("click", (event) => {
+  if (event.target === scrumLightbox) {
+    fecharLightbox();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && scrumLightbox.classList.contains("ativo")) {
+    fecharLightbox();
+  }
+});
+
+// ========================================
+// HERO — TROCA TIPOGRÁFICA
+// ========================================
+
+const heroNome = document.querySelector(".hero-nome");
+
+const fontesHero = ["fonte-tech", "fonte-editorial", "fonte-experimental"];
+
+let fonteHeroAtual = 0;
+
+function trocarFonteHero() {
+  heroNome.classList.add("glitch");
+
+  setTimeout(() => {
+    heroNome.classList.remove(...fontesHero);
+
+    fonteHeroAtual++;
+
+    if (fonteHeroAtual >= fontesHero.length) {
+      fonteHeroAtual = 0;
+    }
+
+    heroNome.classList.add(fontesHero[fonteHeroAtual]);
+  }, 90);
+
+  setTimeout(() => {
+    heroNome.classList.remove("glitch");
+  }, 180);
+}
+
+setInterval(trocarFonteHero, 2500);
