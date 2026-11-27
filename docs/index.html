@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="./portfolio.css" />
     <link rel="stylesheet" href="./animations.css" />
     <link rel="stylesheet" href="./transitions.css" />
-     <script src="./js/transitions.js"></script>
-
-   
+    <script src="./js/transitions.js"></script>
   </head>
   <body>
     <header id="inicio" class="hero-editorial">
@@ -23,6 +21,7 @@
           <a href="#inicio">Início</a>
           <a href="#projetos">Projetos</a>
           <a href="#sobre">Sobre mim</a>
+          <a href="#pitch">Pitch</a>
           <a href="#contato">Contato ↗</a>
         </div>
       </nav>
@@ -222,132 +221,142 @@
           </div>
 
           <!-- GALERIA -->
-<div class="projetos-conteudo">
-          <div class="projetos-galeria grid-editorial">
-            <!-- PROJETO 01 — SCRUM DUNGEON -->
+          <div class="projetos-conteudo">
+            <div class="projetos-galeria grid-editorial">
+              <!-- PROJETO 01 — SCRUM DUNGEON -->
 
-            <article
-              class="projeto-editorial col-7"
-              data-categoria="academico"
-              data-editorial-reveal
-              style="--reveal-delay: 0ms"
-            >
-              <div class="projeto-editorial-indice">
-                <span>01.</span>
-
-                <span>ABP / 1DSM</span>
-              </div>
-
-              <a
-                class="projeto-editorial-link"
-                href="./projetos/scrum-dungeon.html"
+              <article
+                class="projeto-editorial col-7"
+                data-categoria="academico"
+                data-editorial-reveal
+                style="--reveal-delay: 0ms"
               >
-                <div class="projeto-editorial-imagem scrum-capa">
-                  <img
-                    src="./assets/logo_scrum_dungeon_capa.png"
-                    alt="Identidade visual do Scrum Dungeon"
-                    loading="lazy"
-                  />
+                <div class="projeto-editorial-indice">
+                  <span>01.</span>
 
-                  <span class="projeto-editorial-overlay">
-                    EXPLORAR CASE ↗
-                  </span>
+                  <span>ABP / 1DSM</span>
                 </div>
 
-                <div class="projeto-editorial-info">
-                  <span class="projeto-editorial-categoria">
-                    ACADÊMICO / 1º SEM. 2026
-                  </span>
+                <a
+                  class="projeto-editorial-link"
+                  href="./projetos/scrum-dungeon.html"
+                >
+                  <div class="projeto-editorial-imagem scrum-capa">
+                    <img
+                      src="./assets/logo_scrum_dungeon_capa.png"
+                      alt="Identidade visual do Scrum Dungeon"
+                      loading="lazy"
+                    />
 
-                  <div class="projeto-editorial-titulo">
-                    <h3>Scrum Dungeon</h3>
-
-                    <span aria-hidden="true">↗</span>
+                    <span class="projeto-editorial-overlay">
+                      EXPLORAR CASE ↗
+                    </span>
                   </div>
 
-                  <p>
-                    Gamificação, identidade visual e desenvolvimento de
-                    software.
-                  </p>
+                  <div class="projeto-editorial-info">
+                    <span class="projeto-editorial-categoria">
+                      ACADÊMICO / 1º SEM. 2026
+                    </span>
+
+                    <div class="projeto-editorial-titulo">
+                      <h3>Scrum Dungeon</h3>
+
+                      <span aria-hidden="true">↗</span>
+                    </div>
+
+                    <p>
+                      Gamificação, identidade visual e desenvolvimento de
+                      software.
+                    </p>
+                  </div>
+                </a>
+
+                <div class="projeto-editorial-tags">
+                  <span>Game Design</span>
+                  <span>UX/UI</span>
+                  <span>JavaScript</span>
+                  <span>Scrum</span>
                 </div>
-              </a>
+              </article>
 
-              <div class="projeto-editorial-tags">
-                <span>Game Design</span>
-                <span>UX/UI</span>
-                <span>JavaScript</span>
-                <span>Scrum</span>
-              </div>
-            </article>
+              <!-- PROJETO 02 — GREENER -->
 
-            <!-- PROJETO 02 — GREENER -->
+              <article
+                class="projeto-editorial col-5"
+                data-categoria="academico"
+                data-editorial-reveal
+                style="--reveal-delay: 150ms"
+              >
+                <div class="projeto-editorial-indice">
+                  <span>02.</span>
 
-            <article
-              class="projeto-editorial col-5"
-              data-categoria="academico"
-              data-editorial-reveal
-              style="--reveal-delay: 150ms"
+                  <span>ABP / 2DSM</span>
+                </div>
+
+                <a
+                  class="projeto-editorial-link"
+                  href="./projetos/greener.html"
+                >
+                  <div class="projeto-editorial-imagem greener-capa">
+                    <img
+                      src="./assets/Greener/card.png"
+                      alt="Identidade visual do GreenER"
+                      loading="lazy"
+                    />
+
+                    <span class="projeto-editorial-overlay">
+                      EXPLORAR CASE ↗
+                    </span>
+                  </div>
+
+                  <div class="projeto-editorial-info">
+                    <span class="projeto-editorial-categoria">
+                      ACADÊMICO / 2º SEM. 2026
+                    </span>
+
+                    <div class="projeto-editorial-titulo">
+                      <h3>GreenER</h3>
+
+                      <span aria-hidden="true">↗</span>
+                    </div>
+
+                    <p>
+                      Desenvolvimento de software, visualização de dados e
+                      sustentabilidade.
+                    </p>
+                  </div>
+                </a>
+
+                <div class="projeto-editorial-tags">
+                  <span>React</span>
+                  <span>TypeScript</span>
+                  <span>UX/UI</span>
+                  <span>Data Visualization</span>
+                </div>
+
+                <div class="projeto-editorial-premiacao">
+                  ★ 1º LUGAR / FEIRA DE PROJETOS FATEC
+                </div>
+              </article>
+            </div>
+
+            <!-- ESTADO VAZIO DOS FILTROS -->
+
+            <div
+              class="projetos-vazio"
+              id="projetos-vazio"
+              role="status"
+              hidden
             >
-              <div class="projeto-editorial-indice">
-                <span>02.</span>
+              <span>INDEX / 00</span>
 
-                <span>ABP / 2DSM</span>
-              </div>
+              <h3>Em construção.</h3>
 
-              <a class="projeto-editorial-link" href="./projetos/greener.html">
-                <div class="projeto-editorial-imagem greener-capa">
-                  <img
-                    src="./assets/Greener/card.png"
-                    alt="Identidade visual do GreenER"
-                    loading="lazy"
-                  />
-
-                  <span class="projeto-editorial-overlay">
-                    EXPLORAR CASE ↗
-                  </span>
-                </div>
-
-                <div class="projeto-editorial-info">
-                  <span class="projeto-editorial-categoria">
-                    ACADÊMICO / 2º SEM. 2026
-                  </span>
-
-                  <div class="projeto-editorial-titulo">
-                    <h3>GreenER</h3>
-
-                    <span aria-hidden="true">↗</span>
-                  </div>
-
-                  <p>
-                    Desenvolvimento de software, visualização de dados e
-                    sustentabilidade.
-                  </p>
-                </div>
-              </a>
-
-              <div class="projeto-editorial-tags">
-                <span>React</span>
-                <span>TypeScript</span>
-                <span>UX/UI</span>
-                <span>Data Visualization</span>
-              </div>
-
-              <div class="projeto-editorial-premiacao">
-                ★ 1º LUGAR / FEIRA DE PROJETOS FATEC
-              </div>
-            </article>
+              <p>
+                Novos projetos serão adicionados futuramente nesta categoria.
+              </p>
+            </div>
           </div>
-
-          <!-- ESTADO VAZIO DOS FILTROS -->
-
-          <div class="projetos-vazio" id="projetos-vazio" role="status" hidden>
-            <span>INDEX / 00</span>
-
-            <h3>Em construção.</h3>
-
-            <p>Novos projetos serão adicionados futuramente nesta categoria.</p>
-          </div> 
-        </div>
 
           <!-- RODAPÉ EDITORIAL -->
 
@@ -778,6 +787,105 @@
           </div>
         </div>
       </section>
+
+      <!-- ========================================
+     APRESENTAÇÃO — VÍDEO PITCH
+========================================= -->
+
+      <section
+        id="pitch"
+        class="secao-editorial"
+        aria-labelledby="pitch-titulo"
+      >
+        <div class="container-editorial">
+          <!-- METADADOS -->
+
+          <div class="pitch-metadados">
+            <span>04 / APRESENTAÇÃO PESSOAL</span>
+            <span>PITCH / 2026</span>
+          </div>
+
+          <!-- CABEÇALHO -->
+
+          <header class="pitch-cabecalho">
+            <h2 id="pitch-titulo">Muito prazer<span>.</span></h2>
+
+            <p>Além das linhas de código.</p>
+          </header>
+
+          <!-- COMPOSIÇÃO PRINCIPAL -->
+
+          <div class="pitch-conteudo grid-editorial">
+            <!-- VÍDEO -->
+
+            <figure class="pitch-video col-8">
+              <div class="pitch-player">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/KH25uoZw9_g"
+                  title="Pitch profissional — Vitor Hirch"
+                  loading="lazy"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <figcaption>FIG.01 — APRESENTAÇÃO PROFISSIONAL</figcaption>
+            </figure>
+
+            <!-- INFORMAÇÕES COMPLEMENTARES -->
+
+            <aside class="pitch-informacoes col-4">
+              <span class="pitch-marcador" aria-hidden="true"></span>
+
+              <h3>Arte, design e tecnologia.</h3>
+
+              <p class="pitch-descricao">
+                Uma breve apresentação sobre quem sou, minha trajetória
+                criativa, minha formação em desenvolvimento de software e meus
+                objetivos profissionais.
+              </p>
+
+              <dl class="pitch-ficha">
+                <div>
+                  <dt>FORMAÇÃO</dt>
+
+                  <dd>Desenvolvimento de Software Multiplataforma</dd>
+                  <dd>Design de Produto</dd>
+                </div>
+
+                <div>
+                  <dt>INSTITUIÇÃO</dt>
+
+                  <dd>Fatec Jacareí</dd>
+                  <dd>Anhembi Morumbi</dd>
+                </div>
+
+                <div>
+                  <dt>FORMATO</dt>
+
+                  <dd>Pitch pessoal / 2026</dd>
+                </div>
+              </dl>
+            </aside>
+          </div>
+
+          <!-- RODAPÉ EDITORIAL -->
+
+          <div class="pitch-rodape">
+            <span> DA CRIATIVIDADE À IMPLEMENTAÇÃO. </span>
+
+            <a href="#contato"> VAMOS CONVERSAR ↓ </a>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer id="contato">
@@ -832,6 +940,5 @@
     </footer>
     <script src="./js/home.js"></script>
     <script src="./js/animations.js"></script>
-    
   </body>
 </html>

@@ -1280,6 +1280,527 @@ body:not(.case-page) .trajetoria-galeria {
 }
 
 /* ========================================
+   SOBRE MIM — REFINAMENTO TIPOGRÁFICO
+======================================== */
+
+/* TÍTULO PRINCIPAL */
+
+#sobre .sobre-cabecalho h2 {
+  max-width: none;
+
+  font-family: var(--fonte-tech);
+  font-size: clamp(44px, 7vw, 110px);
+  font-weight: 900;
+
+  line-height: 0.95;
+  letter-spacing: -0.065em;
+}
+
+
+/* IDENTIFICADORES EDITORIAIS */
+
+#sobre .secao-label,
+#sobre .trajetoria-indice,
+#sobre .skills-label,
+#sobre .skill-descricao-label,
+#sobre .formacao-periodo,
+#sobre .formacao-conteudo > span {
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+
+  letter-spacing: 0.12em;
+}
+
+
+/* NAVEGAÇÃO INTERNA */
+
+#sobre .sobre-botao {
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-sm);
+  font-weight: 600;
+
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+
+/* TÍTULOS EDITORIAIS */
+
+#sobre .sobre-texto h3,
+#sobre .skills-intro h3,
+#sobre .skills-descricao h3 {
+  font-family: var(--fonte-editorial);
+  font-size: clamp(30px, 3.5vw, 54px);
+  font-weight: 400;
+  font-style: italic;
+
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+
+/* TEXTOS DESCRITIVOS */
+
+#sobre .sobre-texto p,
+#sobre .skills-intro p,
+#sobre .skills-descricao p {
+  font-family: var(--fonte-tech);
+  font-size: clamp(15px, 1.2vw, 18px);
+
+  line-height: 1.8;
+
+  color: #d5d3ce;
+}
+
+
+/* INSTRUÇÕES */
+
+#sobre .trajetoria-instrucao {
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+
+  line-height: 1.6;
+
+  color: #aaa;
+}
+
+
+/* FORMAÇÃO */
+
+#sobre .formacao-conteudo h3 {
+  font-family: var(--fonte-editorial);
+  font-size: clamp(24px, 2.8vw, 40px);
+
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+#sobre .formacao-conteudo p {
+  font-family: var(--fonte-tech);
+  font-size: var(--texto-sm);
+
+  color: #b5b3ae;
+}
+
+#sobre .formacao-periodo,
+#sobre .formacao-conteudo > span {
+  color: #aaa;
+}
+
+#sobre .formacao-item-atual
+.formacao-conteudo > span {
+  color: var(--cor-destaque);
+}
+
+/* ========================================
+   HOME — APRESENTAÇÃO PESSOAL / PITCH
+======================================== */
+
+#pitch {
+  width: 100%;
+
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+
+
+/* METADADOS */
+
+.pitch-metadados {
+  display: flex;
+  justify-content: space-between;
+
+  gap: var(--espaco-3);
+
+  padding-bottom: var(--espaco-3);
+
+  border-bottom: 1px solid var(--cor-texto);
+
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+
+  letter-spacing: 0.08em;
+}
+
+
+/* CABEÇALHO */
+
+.pitch-cabecalho {
+  margin-block:
+    var(--espaco-6)
+    var(--espaco-6);
+}
+
+#pitch .pitch-cabecalho h2 {
+  margin: 0;
+
+  font-family: var(--fonte-tech);
+  font-size: clamp(48px, 8vw, 100px);
+  font-weight: 900;
+
+  line-height: 0.95;
+  letter-spacing: -0.075em;
+}
+
+.pitch-cabecalho h2 > span {
+  color: var(--cor-destaque);
+}
+
+.pitch-cabecalho p {
+  margin: var(--espaco-4) 0 0;
+
+  font-family: var(--fonte-editorial);
+  font-size: clamp(24px, 3vw, 42px);
+  font-style: italic;
+
+  letter-spacing: -0.035em;
+}
+
+
+/* GRID PRINCIPAL */
+
+.pitch-conteudo {
+  align-items: start;
+
+  row-gap: var(--espaco-5);
+}
+
+
+/* ========================================
+   PITCH — PLAYER
+======================================== */
+
+.pitch-video {
+  min-width: 0;
+  margin: 0;
+}
+
+.pitch-player {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  background: var(--cor-texto);
+  color: var(--cor-fundo);
+}
+
+
+/* PLAYER INCORPORADO */
+
+.pitch-player > iframe {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+}
+
+
+/* LEGENDA */
+
+.pitch-video figcaption {
+  margin-top: var(--espaco-3);
+
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+
+  letter-spacing: 0.08em;
+
+  color: var(--cor-texto-secundario);
+}
+
+/* ========================================
+   PITCH — PLACEHOLDER TEMPORÁRIO
+======================================== */
+
+.pitch-placeholder {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: var(--espaco-3);
+
+  background-image:
+    linear-gradient(
+      rgba(242, 240, 235, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(242, 240, 235, 0.055) 1px,
+      transparent 1px
+    );
+
+  background-size: 36px 36px;
+}
+
+.pitch-player-label {
+  position: absolute;
+
+  top: var(--espaco-3);
+  left: var(--espaco-3);
+
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+
+  letter-spacing: 0.08em;
+}
+
+
+/* ELEMENTOS ORBITAIS */
+
+.pitch-orbita {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  width: clamp(72px, 12vw, 160px);
+  aspect-ratio: 1;
+
+  border: 1px solid rgba(242, 240, 235, 0.3);
+  border-radius: 50%;
+}
+
+.pitch-orbita::before {
+  content: "";
+
+  position: absolute;
+  inset: 10%;
+
+  border: 1px dashed rgba(242, 240, 235, 0.4);
+  border-radius: 50%;
+}
+
+.pitch-play {
+  display: grid;
+  place-items: center;
+
+  width: 58%;
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  background: var(--cor-destaque);
+  color: var(--cor-texto);
+
+  font-size: clamp(18px, 3vw, 36px);
+}
+
+.pitch-placeholder > p {
+  margin: 0;
+
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+
+  letter-spacing: 0.08em;
+}
+
+
+/* INFORMAÇÕES INFERIORES */
+
+.pitch-player-base {
+  position: absolute;
+
+  left: var(--espaco-3);
+  right: var(--espaco-3);
+  bottom: var(--espaco-3);
+
+  display: flex;
+  justify-content: space-between;
+
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+}
+
+/* ========================================
+   PITCH — INFORMAÇÕES COMPLEMENTARES
+======================================== */
+
+.pitch-informacoes {
+  min-width: 0;
+
+  padding-left: var(--espaco-4);
+}
+
+.pitch-marcador {
+  display: block;
+
+  width: 48px;
+  height: 4px;
+
+  margin-bottom: var(--espaco-4);
+
+  background: var(--cor-destaque);
+}
+
+.pitch-informacoes h3 {
+  margin: 0;
+
+  font-family: var(--fonte-editorial);
+  font-size: clamp(28px, 3.5vw, 52px);
+  font-style: italic;
+  font-weight: 400;
+
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.pitch-descricao {
+  margin-block: var(--espaco-4);
+
+  font-size: var(--texto-sm);
+  line-height: 1.8;
+
+  color: var(--cor-texto-secundario);
+}
+
+
+/* FICHA EDITORIAL */
+
+.pitch-ficha {
+  margin: var(--espaco-5) 0 0;
+}
+
+.pitch-ficha > div {
+  padding-block: var(--espaco-3);
+
+  border-top: 1px solid var(--cor-borda);
+}
+
+.pitch-ficha dt {
+  margin-bottom: var(--espaco-2);
+
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+
+  letter-spacing: 0.08em;
+
+  color: var(--cor-texto-secundario);
+}
+
+.pitch-ficha dd {
+  margin: 0;
+
+  font-size: var(--texto-sm);
+  font-weight: 600;
+
+  line-height: 1.5;
+}
+
+/* ========================================
+   PITCH — RODAPÉ EDITORIAL
+======================================== */
+
+.pitch-rodape {
+  display: flex;
+
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  gap: var(--espaco-3);
+
+  margin-top: var(--espaco-7);
+  padding-top: var(--espaco-4);
+
+  border-top: 1px solid var(--cor-texto);
+
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+
+  letter-spacing: 0.06em;
+}
+
+.pitch-rodape a {
+  color: var(--cor-texto);
+
+  font-weight: 700;
+  text-decoration: none;
+
+  transition: color var(--duracao-rapida);
+}
+
+.pitch-rodape a:hover {
+  color: var(--cor-ruptura);
+}
+
+
+/* ========================================
+   PITCH — RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 900px) {
+
+  .pitch-informacoes {
+    padding-left: 0;
+  }
+
+  .pitch-ficha {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: var(--espaco-3);
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  #pitch .pitch-cabecalho h2 {
+    font-size: clamp(40px, 11vw, 68px);
+  }
+
+  .pitch-cabecalho {
+    margin-block: var(--espaco-5);
+  }
+
+  .pitch-ficha {
+    grid-template-columns: 1fr;
+  }
+
+  .pitch-metadados,
+  .pitch-player-label,
+  .pitch-player-base,
+  .pitch-placeholder > p,
+  .pitch-rodape {
+    font-size: 9px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .pitch-rodape a {
+    transition: none;
+  }
+
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+
+  #sobre .sobre-cabecalho h2 {
+    font-size: clamp(40px, 10vw, 64px);
+  }
+
+  #sobre .sobre-botao {
+    font-size: 11px;
+    padding-inline: 10px;
+  }
+
+}
+
+/* ========================================
    HERO — RESPONSIVIDADE
 ======================================== */
 
