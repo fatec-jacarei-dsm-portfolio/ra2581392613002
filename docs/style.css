@@ -1,7 +1,96 @@
+/* ========================================
+   DESIGN SYSTEM — VH / PORTFÓLIO 2026
+======================================== */
+
 :root {
+
+  /* 01 — PALETA CROMÁTICA */
+
   --cor-fundo: #f2f0eb;
   --cor-texto: #151515;
   --cor-destaque: #ff27c8;
+  --cor-ruptura: #df0028;
+
+  --cor-superficie-clara: #e8e5de;
+  --cor-superficie-escura: #1d1d1d;
+
+  --cor-texto-secundario: #65635e;
+  --cor-texto-invertido: #f2f0eb;
+
+  --cor-borda: rgba(21, 21, 21, 0.18);
+  --cor-borda-invertida: rgba(242, 240, 235, 0.18);
+
+
+  /* 02 — TIPOGRAFIA */
+
+  --fonte-tech: Arial, Helvetica, sans-serif;
+
+  --fonte-editorial: Georgia, "Times New Roman", serif;
+
+  --fonte-codigo: "Courier New", Courier, monospace;
+
+
+  /* 03 — ESCALA TIPOGRÁFICA */
+
+  --texto-xs: 0.6875rem;
+  --texto-sm: 0.875rem;
+  --texto-base: 1rem;
+
+  --texto-md: clamp(1rem, 1.3vw, 1.25rem);
+  --texto-lg: clamp(1.25rem, 2vw, 1.75rem);
+
+  --titulo-sm: clamp(1.75rem, 3vw, 2.5rem);
+  --titulo-md: clamp(2.5rem, 5vw, 5rem);
+  --titulo-lg: clamp(3.5rem, 8vw, 8rem);
+
+  --titulo-display: clamp(4rem, 12vw, 12rem);
+
+
+  /* 04 — ESPAÇAMENTOS */
+
+  --espaco-1: 4px;
+  --espaco-2: 8px;
+  --espaco-3: 16px;
+  --espaco-4: 24px;
+  --espaco-5: 32px;
+  --espaco-6: 48px;
+  --espaco-7: 64px;
+  --espaco-8: 96px;
+  --espaco-9: 128px;
+
+
+  /* 05 — GRID E DIMENSÕES */
+
+  --largura-maxima: 1600px;
+  --largura-conteudo: 1400px;
+  --largura-leitura: 720px;
+
+  --margem-lateral: clamp(20px, 5vw, 80px);
+  --espacamento-secao: clamp(64px, 8vw, 128px);
+
+  --grid-colunas: 12;
+  --grid-gap: clamp(12px, 2vw, 32px);
+
+
+  /* 06 — BORDAS */
+
+  --borda-fina: 1px;
+  --borda-media: 2px;
+
+  --raio-minimo: 2px;
+  --raio-pequeno: 6px;
+  --raio-circular: 50%;
+
+
+  /* 07 — MOVIMENTO */
+
+  --duracao-rapida: 180ms;
+  --duracao-media: 350ms;
+  --duracao-lenta: 750ms;
+
+  --ease-suave: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-impacto: cubic-bezier(0.76, 0, 0.24, 1);
+
 }
 
 * {
@@ -16,74 +105,8 @@ body {
   margin: 0;
 }
 
-#inicio {
-  position: relative;
-  width: min(100% - 32px, 1600px);
-  aspect-ratio: 16 / 7;
-  min-height: 520px;
-  max-height: 920px;
 
-  margin: 16px auto 0;
 
-  overflow: hidden;
-
-  background: #151515;
-}
-
-.hero-fundo {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-  object-position: center;
-
-  z-index: 1;
-}
-
-.hero-forma {
-  position: absolute;
-  z-index: 2;
-
-  pointer-events: none;
-}
-
-.hero-forma-1 {
-  left: 0;
-  top: 0;
-
-  width: 22%;
-  height: auto;
-}
-
-.hero-forma-2 {
-  right: 0;
-  top: 0;
-
-  width: 14%;
-  height: auto;
-}
-
-.hero-nome {
-  position: absolute;
-  z-index: 2;
-
-  top: 8%;
-  right: 7%;
-
-  margin: 0;
-
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(80px, 10vw, 180px);
-  font-weight: 700;
-  line-height: 0.78;
-  letter-spacing: -0.06em;
-
-  text-shadow: 8px 8px 0 #df0028;
-}
 
 /* ========================================
    HERO — VARIAÇÕES TIPOGRÁFICAS
@@ -114,7 +137,7 @@ body {
 /* 02 — EDITORIAL */
 
 .hero-nome.fonte-editorial {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--fonte-editorial);
 
   font-weight: 400;
   letter-spacing: -0.07em;
@@ -182,86 +205,6 @@ body {
 
 .hero-nome span {
   display: block;
-}
-.foto-hero {
-  position: absolute;
-  z-index: 3;
-
-  left: 0;
-  top: 0;
-
-  width: 75.104%;
-  height: 100%;
-
-  object-fit: cover;
-  object-position: left center;
-
-  pointer-events: none;
-}
-
-.hero-respingo {
-  position: absolute;
-  z-index: 4;
-  width: 120px;
-
-  top: 15%;
-  left: 10%;
-}
-
-.hero-subtitulo {
-  position: absolute;
-  z-index: 5;
-
-  left: 40px;
-  bottom: 30px;
-
-  margin: 0;
-
-  color: white;
-  font-family: Arial, sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.25em;
-}
-
-.navbar {
-  position: absolute;
-
-  z-index: 10;
-
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  height: 64px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 8px;
-
-  background: rgba(242, 240, 235, 0.78);
-
-  border-top: 1px solid rgba(255, 255, 255, 0.55);
-
-  backdrop-filter: blur(5px);
-}
-
-.navbar a {
-  padding: 9px 15px;
-
-  color: #151515;
-
-  text-decoration: none;
-
-  font-size: 12px;
-
-  border-radius: 100px;
-}
-
-.navbar a:hover {
-  background: #151515;
-  color: white;
 }
 
 body {
@@ -1546,7 +1489,7 @@ section p {
   margin: 15px 0 0;
 
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(54px, 8vw, 120px);
+  font-size: clamp(38px, 8vw, 68px);
   font-weight: 400;
   line-height: 0.9;
   letter-spacing: -0.04em;
@@ -2698,69 +2641,958 @@ section p {
   color: var(--cor-destaque);
 }
 
+/* ========================================
+   GREENER — CARD DE DESTAQUE
+======================================== */
+
+.projeto-card-greener {
+  background: #102e30;
+}
+
+.projeto-card-greener > img {
+  padding: 0;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.5s ease;
+}
+
+.projeto-card-greener:hover > img {
+  transform: scale(1.04);
+}
+
+.projeto-card-greener .card-info {
+  background: linear-gradient(
+    transparent,
+    rgba(7, 28, 28, 0.97)
+  );
+}
+
+.projeto-card-greener .card-hover strong {
+  color: #a8df86;
+}
+
+/* ========================================
+   GREENER — VARIÁVEIS E ESTRUTURA
+======================================== */
+
+#projeto-02 {
+  --scrum-largura: 1400px;
+  --scrum-conteudo: 1100px;
+
+  --greener-fundo: #0c2528;
+  --greener-superficie: #123437;
+  --greener-destaque: #a8df86;
+  --greener-texto: #edf1e9;
+  --greener-texto-secundario: #acbfba;
+  --greener-borda: #345052;
+
+  padding: 100px 0 0;
+
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+
+  scroll-margin-top: 80px;
+}
+
+
+/* ========================================
+   CABEÇALHO EDITORIAL
+======================================== */
+
+#projeto-02 .projeto-cabecalho h2 {
+  margin: 15px 0 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 8vw, 68px);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.greener-subtitulo {
+  margin: 25px 0 0;
+
+  font-size: clamp(16px, 2vw, 22px);
+  line-height: 1.5;
+
+  opacity: 0.75;
+}
+
+
+/* ========================================
+   RECONHECIMENTO ACADÊMICO
+======================================== */
+
+.greener-reconhecimento {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 25px;
+  padding: 10px 15px;
+
+  border: 1px solid #9e946c;
+  border-radius: 4px;
+
+  color: #746638;
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+.greener-reconhecimento-marcador {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  background: #a08b49;
+}
+
+
+/* ========================================
+   APRESENTAÇÃO PRINCIPAL
+======================================== */
+
+.greener-case {
+  grid-template-columns:
+    minmax(0, 1.3fr)
+    minmax(0, 0.7fr);
+
+  gap: clamp(35px, 5vw, 80px);
+
+  background: var(--greener-fundo);
+  color: var(--greener-texto);
+}
+
+.greener-apresentacao-visual {
+  min-width: 0;
+}
+
+.greener-apresentacao-visual > img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  border: 1px solid var(--greener-borda);
+  border-radius: 6px;
+
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.25);
+}
+
+.greener-apresentacao-legenda {
+  display: flex;
+
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin-top: 18px;
+
+  color: var(--greener-texto-secundario);
+
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+
+
+/* ========================================
+   CONTEÚDO TEXTUAL
+======================================== */
+
+#projeto-02 .projeto-bloco {
+  border-color: var(--greener-borda);
+}
+
+#projeto-02 .projeto-bloco h3 {
+  color: var(--greener-destaque);
+}
+
+#projeto-02 .projeto-bloco p {
+  color: var(--greener-texto-secundario);
+}
+
+#projeto-02 .projeto-link {
+  border-color: var(--greener-borda);
+
+  color: var(--greener-texto);
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+#projeto-02 .projeto-link:hover {
+  background: var(--greener-destaque);
+
+  border-color: var(--greener-destaque);
+
+  color: var(--greener-fundo);
+}
+
+
+/* ========================================
+   TECNOLOGIAS
+======================================== */
+
+.greener-tecnologias {
+  display: flex;
+
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-top: 18px;
+}
+
+.greener-tecnologias > span {
+  padding: 7px 12px;
+
+  border: 1px solid var(--greener-borda);
+  border-radius: 4px;
+
+  background: var(--greener-superficie);
+  color: var(--greener-texto-secundario);
+
+  font-size: 11px;
+}
+
+/* ========================================
+   GREENER — EVOLUÇÃO DO PROJETO
+======================================== */
+
+.greener-evolucao {
+  padding:
+    clamp(60px, 8vw, 110px)
+    clamp(25px, 7vw, 100px);
+
+  background: var(--greener-fundo);
+  color: var(--greener-texto);
+}
+
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+
+.greener-evolucao-cabecalho {
+  max-width: 750px;
+  margin-bottom: 55px;
+}
+
+.greener-kicker {
+  display: block;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+
+  color: var(--greener-destaque);
+}
+
+.greener-evolucao-cabecalho h3 {
+  margin: 18px 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 4vw, 58px);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.greener-evolucao-cabecalho p {
+  max-width: 600px;
+
+  font-size: 15px;
+  line-height: 1.8;
+
+  color: var(--greener-texto-secundario);
+}
+
+
+/* ========================================
+   LINHA DO TEMPO
+======================================== */
+
+.greener-sprints {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 22px;
+
+  padding-top: 30px;
+}
+
+/* Linha que conecta as três sprints */
+
+.greener-sprints::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 1px;
+
+  background: var(--greener-borda);
+}
+
+
+/* ========================================
+   CARD DE CADA SPRINT
+======================================== */
+
+.greener-sprint {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  padding: clamp(20px, 3vw, 35px);
+
+  border: 1px solid var(--greener-borda);
+  border-radius: 6px;
+
+  background: var(--greener-superficie);
+
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Marcador da linha do tempo */
+
+.greener-sprint::before {
+  content: "";
+
+  position: absolute;
+
+  top: -36px;
+  left: 25px;
+
+  width: 11px;
+  height: 11px;
+
+  border: 2px solid var(--greener-destaque);
+  border-radius: 50%;
+
+  background: var(--greener-fundo);
+
+  box-shadow: 0 0 0 5px var(--greener-fundo);
+}
+
+.greener-sprint:hover {
+  border-color: var(--greener-destaque);
+}
+
+.greener-sprint:hover::before {
+  background: var(--greener-destaque);
+}
+
+
+/* ========================================
+   INFORMAÇÕES DAS SPRINTS
+======================================== */
+
+.greener-sprint-numero {
+  display: block;
+
+  margin-bottom: 20px;
+
+  font-size: 42px;
+  font-weight: 300;
+  line-height: 1;
+
+  color: var(--greener-destaque);
+}
+
+.greener-sprint-periodo {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+
+  color: var(--greener-texto-secundario);
+}
+
+.greener-sprint h4 {
+  margin: 15px 0;
+
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 500;
+
+  color: var(--greener-texto);
+}
+
+.greener-sprint p {
+  margin-bottom: 30px;
+
+  font-size: 13px;
+  line-height: 1.8;
+
+  color: var(--greener-texto-secundario);
+}
+
+
+/* ========================================
+   LINK PARA DEMONSTRAÇÃO
+======================================== */
+
+.greener-sprint-link {
+  display: flex;
+
+  align-items: center;
+  gap: 10px;
+
+  margin-top: auto;
+  padding-top: 20px;
+
+  border-top: 1px solid var(--greener-borda);
+
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+
+  color: var(--greener-destaque);
+
+  transition: opacity 0.25s ease;
+}
+
+.greener-sprint-link > span:first-child {
+  font-size: 20px;
+}
+
+.greener-sprint-link > span:last-child {
+  margin-left: auto;
+  font-size: 16px;
+}
+
+.greener-sprint-link:hover {
+  opacity: 0.7;
+}
+
+.greener-sprint-link:focus-visible {
+  outline: 2px solid var(--greener-destaque);
+  outline-offset: 6px;
+}
+
+
+/* ========================================
+   RODAPÉ DA LINHA DO TEMPO
+======================================== */
+
+.greener-evolucao-rodape {
+  margin-top: 35px;
+
+  font-size: 9px;
+  letter-spacing: 0.15em;
+
+  color: var(--greener-texto-secundario);
+}
+
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 800px) {
+
+  .greener-sprints {
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+
+    padding-top: 0;
+    padding-left: 25px;
+  }
+
+  /* Linha do tempo vertical */
+
+  .greener-sprints::before {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: auto;
+
+    width: 1px;
+    height: auto;
+  }
+
+  .greener-sprint::before {
+    top: 30px;
+    left: -33px;
+  }
+
+  .greener-sprint-numero {
+    font-size: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .greener-sprint,
+  .greener-sprint-link {
+    transition: none;
+  }
+}
+
+/* ========================================
+   GREENER — EXPERIÊNCIA DIGITAL
+======================================== */
+
+.greener-experiencia {
+  padding:
+    clamp(60px, 8vw, 110px)
+    clamp(25px, 7vw, 100px);
+
+  background: var(--greener-fundo);
+  color: var(--greener-texto);
+}
+
+.greener-experiencia-cabecalho {
+  max-width: 750px;
+  margin: 0 auto 45px;
+}
+
+.greener-experiencia-cabecalho h3 {
+  margin: 18px 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 4.5vw, 64px);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.greener-experiencia-cabecalho p {
+  max-width: 600px;
+
+  color: var(--greener-texto-secundario);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* ========================================
+   CONTAINER DA DEMONSTRAÇÃO
+======================================== */
+
+.greener-demo {
+  width: 100%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+/* ========================================
+   NAVEGAÇÃO PRINCIPAL
+======================================== */
+
+.greener-demo-nav {
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.greener-demo-tab {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  min-width: 0;
+  padding: 16px 10px;
+
+  border: 1px solid var(--greener-borda);
+  border-radius: 5px;
+
+  background: transparent;
+  color: var(--greener-texto-secundario);
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.greener-demo-tab > span {
+  font-size: 9px;
+  opacity: 0.65;
+}
+
+.greener-demo-tab:hover {
+  background: var(--greener-superficie);
+  color: var(--greener-texto);
+}
+
+.greener-demo-tab.ativo {
+  background: var(--greener-destaque);
+  border-color: var(--greener-destaque);
+
+  color: var(--greener-fundo);
+}
+
+/* ========================================
+   MOLDURA DA INTERFACE
+======================================== */
+
+.greener-demo-window {
+  overflow: hidden;
+
+  border: 1px solid var(--greener-borda);
+  border-radius: 9px;
+
+  background: #091e20;
+
+  box-shadow:
+    0 25px 65px rgba(0, 0, 0, 0.25);
+}
+
+.greener-demo-toolbar {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 14px 20px;
+
+  border-bottom: 1px solid var(--greener-borda);
+
+  background: var(--greener-superficie);
+}
+
+.greener-demo-toolbar > span {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+
+  color: var(--greener-texto-secundario);
+}
+
+.greener-demo-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.greener-demo-dots > span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #557370;
+}
+
+.greener-demo-dots > span:last-child {
+  background: var(--greener-destaque);
+}
+
+#greener-demo-expand {
+  color: var(--greener-texto-secundario);
+
+  font-size: 20px;
+  line-height: 1;
+  text-decoration: none;
+
+  transition: color 0.25s ease;
+}
+
+#greener-demo-expand:hover {
+  color: var(--greener-destaque);
+}
+
+
+/* ========================================
+   ÁREA DE VISUALIZAÇÃO
+======================================== */
+
+.greener-demo-screen {
+  display: grid;
+  place-items: center;
+
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  padding: 10px;
+
+  background: #091e20;
+}
+
+.greener-demo-screen > img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  border-radius: 3px;
+
+  animation: greener-demo-entrada 0.35s ease both;
+}
+
+@keyframes greener-demo-entrada {
+  from {
+    opacity: 0.5;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   VARIAÇÕES DE VISUALIZAÇÃO
+======================================== */
+
+.greener-demo-variants {
+  display: flex;
+
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 18px;
+}
+
+.greener-demo-variants[hidden] {
+  display: none;
+}
+
+.greener-demo-variant {
+  padding: 8px 16px;
+
+  border: 1px solid var(--greener-borda);
+  border-radius: 4px;
+
+  background: transparent;
+  color: var(--greener-texto-secundario);
+
+  font-family: inherit;
+  font-size: 11px;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease,
+    background 0.25s ease;
+}
+
+.greener-demo-variant:hover {
+  border-color: var(--greener-destaque);
+}
+
+.greener-demo-variant.ativo {
+  border-color: var(--greener-destaque);
+
+  background: rgba(168, 223, 134, 0.08);
+  color: var(--greener-destaque);
+}
+
+/* ========================================
+   DESCRIÇÃO DA FUNCIONALIDADE
+======================================== */
+
+.greener-demo-footer {
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) auto;
+
+  align-items: start;
+
+  gap: 30px;
+
+  margin-top: 35px;
+  padding-top: 30px;
+
+  border-top: 1px solid var(--greener-borda);
+}
+
+.greener-demo-counter {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+
+  color: var(--greener-destaque);
+}
+
+.greener-demo-description h4 {
+  margin: 12px 0 15px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 400;
+}
+
+.greener-demo-description p {
+  max-width: 750px;
+  min-height: 3.6em;
+
+  font-size: 14px;
+  line-height: 1.8;
+
+  color: var(--greener-texto-secundario);
+}
+
+
+/* ========================================
+   TAGS
+======================================== */
+
+.greener-demo-tags {
+  display: flex;
+
+  flex-wrap: wrap;
+  gap: 8px;
+
+  margin-top: 20px;
+}
+
+.greener-demo-tags > span {
+  padding: 6px 12px;
+
+  border: 1px solid var(--greener-borda);
+  border-radius: 4px;
+
+  color: var(--greener-texto-secundario);
+
+  font-size: 10px;
+}
+
+
+/* ========================================
+   CONTROLES DE NAVEGAÇÃO
+======================================== */
+
+.greener-demo-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.greener-demo-controls > button {
+  display: grid;
+  place-items: center;
+
+  width: 48px;
+  height: 48px;
+
+  border: 1px solid var(--greener-borda);
+  border-radius: 5px;
+
+  background: transparent;
+  color: var(--greener-texto);
+
+  font-size: 22px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.greener-demo-controls > button:hover {
+  background: var(--greener-destaque);
+  border-color: var(--greener-destaque);
+
+  color: var(--greener-fundo);
+}
+
+.greener-demo button:focus-visible,
+.greener-demo a:focus-visible {
+  outline: 2px solid var(--greener-destaque);
+  outline-offset: 4px;
+}
+
+.greener-demo-caption {
+  max-width: 1200px;
+
+  margin: 30px auto 0;
+
+  font-size: 10px;
+  letter-spacing: 0.06em;
+
+  color: var(--greener-texto-secundario);
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 1000px) {
+  .greener-case {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  #projeto-02 .projeto-conteudo {
+    max-width: none;
+  }
+}
+
+@media (max-width: 600px) {
+  #projeto-02 {
+    padding-top: 70px;
+  }
+
+  #projeto-02 .projeto-cabecalho h2 {
+    font-size: clamp(48px, 15vw, 80px);
+  }
+
+  .greener-case {
+    padding-top: 45px;
+    padding-bottom: 60px;
+  }
+
+  .greener-reconhecimento {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  .greener-apresentacao-legenda {
+    font-size: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projeto-card-greener > img {
+    transition: none;
+  }
+
+  .projeto-card-greener:hover > img {
+    transform: none;
+  }
+}
+
 @media (max-width: 768px) {
-  .navbar {
-    width: calc(100% - 30px);
-    justify-content: center;
-    gap: 0;
-  }
 
-  .navbar a {
-    padding: 8px 10px;
-    font-size: 11px;
-    background: var(--cor-destaque);
-    color: #151515;
-  }
-
-  .hero-nome {
-    font-size: 15vw;
-  }
-
-  .foto-hero {
-    height: 55vh;
-  }
-
-  .hero-respingo {
-    width: 100px;
-    right: 5%;
-  }
-
-  .hero-subtitulo {
-    left: 30px;
-    font-size: 9px;
-    bottom: 82px;
-  }
-
-  .hero-social {
-    position: absolute;
-    z-index: 10;
-
-    right: 30px;
-    bottom: 84px;
-
-    display: flex;
-    gap: 20px;
-  }
-
-  .hero-social a {
-    color: white;
-
-    font-size: 11px;
-    font-weight: 700;
-
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-
-    text-decoration: none;
-
-    border-bottom: 1px solid transparent;
-
-    transition: border-color 0.2s ease;
-  }
-
-  .hero-social a:hover {
-    border-color: var(--cor-destaque);
-  }
 
   .projeto-card,
   #sobre,
@@ -2825,5 +3657,77 @@ section p {
   .avatar-botao img {
     width: 60px;
     height: 60px;
+  }
+}
+
+/* ========================================
+   GREENER — DEMO RESPONSIVA
+======================================== */
+
+@media (max-width: 1000px) {
+
+  .greener-demo-nav {
+    display: flex;
+
+    overflow-x: auto;
+
+    padding-bottom: 8px;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--greener-borda) transparent;
+  }
+
+  .greener-demo-tab {
+    flex-shrink: 0;
+
+    padding: 13px 20px;
+
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .greener-demo-toolbar {
+    padding: 10px 12px;
+  }
+
+  .greener-demo-screen {
+    padding: 4px;
+  }
+
+  .greener-demo-footer {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+  .greener-demo-controls {
+    justify-content: flex-end;
+  }
+
+  .greener-demo-controls > button {
+    width: 42px;
+    height: 42px;
+  }
+
+  .greener-demo-description p {
+    min-height: auto;
+  }
+
+  .greener-demo-variant {
+    padding: 8px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .greener-demo-screen > img {
+    animation: none;
+  }
+
+  .greener-demo button,
+  .greener-demo a {
+    transition: none;
   }
 }

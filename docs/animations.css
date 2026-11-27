@@ -1,0 +1,353 @@
+/* ========================================
+   HERO — REVELAÇÃO TIPOGRÁFICA
+======================================== */
+
+.hero-nome-linha {
+  display: block;
+
+  overflow: hidden;
+
+  padding-bottom: 0.08em;
+}
+
+.hero-nome-texto {
+  display: block;
+
+  animation: motion-reveal-up 1000ms var(--ease-suave) both;
+}
+
+/* PRIMEIRA LINHA */
+
+.hero-nome-linha:nth-child(1) .hero-nome-texto {
+  animation-delay: 350ms;
+}
+
+/* SEGUNDA LINHA */
+
+.hero-nome-linha:nth-child(2) .hero-nome-texto {
+  animation-delay: 500ms;
+}
+
+/* ========================================
+   HERO — REVELAÇÃO FOTOGRÁFICA
+======================================== */
+
+.hero-editorial .foto-hero {
+  animation: motion-mask 1400ms cubic-bezier(0.45, 0, 0.25, 1) both;
+}
+
+/* ========================================
+   HERO — ELEMENTOS GRÁFICOS
+======================================== */
+
+.hero-circulo {
+  animation: motion-orbit-in 1400ms var(--ease-suave) 1600ms both;
+}
+
+.hero-circulo::before {
+  animation: motion-orbit-inner 1200ms var(--ease-suave) 1750ms both;
+}
+
+.hero-editorial .hero-forma-1 {
+  animation: motion-paper-in 850ms var(--ease-suave) 1400ms both;
+}
+
+.hero-editorial .hero-forma-2 {
+  animation: motion-paper-in-right 850ms var(--ease-suave) 1550ms both;
+}
+
+.hero-editorial .hero-respingo {
+  animation: motion-fade-up 650ms var(--ease-suave) 1800ms both;
+}
+
+/* ========================================
+   HERO — ENTRADA ESCALONADA
+======================================== */
+
+.hero-identificador {
+  animation: motion-fade-up 650ms var(--ease-suave) 250ms both;
+}
+
+.hero-assinatura {
+  animation: motion-fade-up 850ms var(--ease-suave) 950ms both;
+}
+
+.hero-metadados,
+.hero-base,
+.hero-visual-indice {
+  animation: motion-fade-up 650ms var(--ease-suave) 1900ms both;
+}
+/* ========================================
+   MOTION SYSTEM — VH / PORTFÓLIO
+======================================== */
+
+/* REVELAÇÃO VERTICAL */
+
+@keyframes motion-reveal-up {
+  from {
+    transform: translateY(110%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* ENTRADA SUAVE */
+
+@keyframes motion-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* REVELAÇÃO FOTOGRÁFICA SUAVIZADA */
+
+@keyframes motion-mask {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+
+  35% {
+    opacity: 0.65;
+  }
+
+  75% {
+    opacity: 0.95;
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+/* SURGIMENTO DOS ELEMENTOS CIRCULARES */
+
+/* ENTRADA DOS ELEMENTOS ORBITAIS */
+
+@keyframes motion-orbit-in {
+  0% {
+    opacity: 0;
+    scale: 0.78;
+    rotate: -65deg;
+  }
+
+  100% {
+    opacity: 0.65;
+    scale: 1;
+    rotate: 0deg;
+  }
+}
+
+/* ROTAÇÃO INTERNA DOS CÍRCULOS */
+
+@keyframes motion-orbit-inner {
+  from {
+    opacity: 0;
+    rotate: 90deg;
+  }
+
+  to {
+    opacity: 0.8;
+    rotate: 0deg;
+  }
+}
+
+/* REVELAÇÃO DAS FORMAS GRÁFICAS */
+
+@keyframes motion-paper-in {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes motion-paper-in-right {
+  from {
+    clip-path: inset(0 0 0 100%);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* REVELAÇÃO DA MALHA GRÁFICA */
+
+@keyframes motion-grid-in {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+  }
+
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.hero-malha {
+  animation: motion-grid-in 1100ms ease-in-out 1450ms both;
+}
+
+/* ========================================
+   HERO — PARALLAX INTERATIVO
+======================================== */
+
+.hero-malha,
+.hero-circulo {
+  translate: var(--parallax-x, 0px) var(--parallax-y, 0px);
+}
+
+/* Margem de segurança para a malha gráfica */
+
+.hero-malha {
+  inset: -24px;
+}
+
+/* ========================================
+   MOTION SYSTEM — EDITORIAL REVEAL
+======================================== */
+
+/* REVELAÇÃO HORIZONTAL */
+
+@keyframes editorial-mask-in {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* REVELAÇÃO VERTICAL DO TÍTULO */
+
+@keyframes editorial-title-in {
+  from {
+    clip-path: inset(100% 0 0 0);
+    translate: 0 20px;
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+    translate: 0 0;
+  }
+}
+
+/* APROXIMAÇÃO DA IMAGEM */
+
+@keyframes editorial-image-in {
+  from {
+    scale: 1.12;
+  }
+
+  to {
+    scale: 1;
+  }
+}
+
+/* ========================================
+   PROJETOS — ESTADO DE ESPERA
+======================================== */
+
+[data-editorial-reveal].editorial-pendente {
+  opacity: 0;
+}
+
+/* ========================================
+   PROJETOS — CABEÇALHO ANIMADO
+======================================== */
+
+.projetos-cabecalho.editorial-visivel h2 {
+  animation: editorial-title-in 950ms var(--ease-suave) both;
+}
+
+.projetos-cabecalho.editorial-visivel p {
+  animation: motion-fade-up 750ms var(--ease-suave) 250ms both;
+}
+
+.projetos-cabecalho.editorial-visivel .projetos-simbolo {
+  animation: motion-fade-up 750ms var(--ease-suave) 400ms both;
+}
+
+/* ========================================
+   PROJETOS — REVELAÇÃO DAS CAPAS
+======================================== */
+
+.projeto-editorial.editorial-visivel .projeto-editorial-imagem {
+  animation: editorial-mask-in 1000ms var(--ease-suave)
+    calc(var(--reveal-delay, 0ms) + 150ms) both;
+}
+
+.projeto-editorial.editorial-visivel .projeto-editorial-imagem > img {
+  animation: editorial-image-in 1400ms var(--ease-suave)
+    calc(var(--reveal-delay, 0ms) + 150ms) both;
+}
+
+/* ========================================
+   PROJETOS — INFORMAÇÕES ESCALONADAS
+======================================== */
+
+.projeto-editorial.editorial-visivel .projeto-editorial-indice {
+  animation: motion-fade-up 650ms var(--ease-suave) var(--reveal-delay, 0ms)
+    both;
+}
+
+.projeto-editorial.editorial-visivel .projeto-editorial-info {
+  animation: motion-fade-up 800ms var(--ease-suave)
+    calc(var(--reveal-delay, 0ms) + 500ms) both;
+}
+
+.projeto-editorial.editorial-visivel .projeto-editorial-tags {
+  animation: motion-fade-up 700ms var(--ease-suave)
+    calc(var(--reveal-delay, 0ms) + 650ms) both;
+}
+
+.projeto-editorial.editorial-visivel .projeto-editorial-premiacao {
+  animation: motion-fade-up 700ms var(--ease-suave)
+    calc(var(--reveal-delay, 0ms) + 800ms) both;
+}
+
+/* ========================================
+   ACESSIBILIDADE — MOVIMENTO REDUZIDO
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  [data-editorial-reveal].editorial-pendente {
+    opacity: 1;
+  }
+
+  .hero-nome-texto,
+  .hero-editorial .foto-hero,
+  .hero-editorial .hero-forma,
+  .hero-editorial .hero-respingo,
+  .hero-circulo,
+  .hero-identificador,
+  .hero-assinatura,
+  .hero-metadados,
+  .hero-base,
+  .hero-visual-indice .hero-malha,
+  .hero-circulo::before [data-editorial-reveal].editorial-visivel *,
+  [data-editorial-reveal].editorial-visivel {
+    animation: none;
+  }
+
+  .hero-malha,
+  .hero-editorial .hero-forma-1,
+  .hero-editorial .hero-forma-2,
+  .hero-circulo {
+    translate: none;
+  }
+}

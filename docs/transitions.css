@@ -1,0 +1,205 @@
+/* ========================================
+   VH — PAGE TRANSITION SYSTEM
+======================================== */
+
+@view-transition {
+  navigation: auto;
+}
+
+/* ========================================
+   TRANSIÇÕES — CONFIGURAÇÕES GLOBAIS
+======================================== */
+
+:root {
+  --transition-duration: 1100ms;
+
+  --transition-ease:
+    cubic-bezier(0.76, 0, 0.24, 1);
+
+  --transition-background: #151515;
+  --transition-foreground: #f2f0eb;
+
+  --transition-title: "VH.";
+  --transition-index: "PORTFÓLIO / INDEX";
+}
+
+
+/* ========================================
+   TRANSIÇÕES — CAMADAS
+======================================== */
+
+::view-transition {
+  background: var(--transition-background);
+}
+
+::view-transition-group(root) {
+  animation-duration: var(--transition-duration);
+
+  animation-timing-function:
+    var(--transition-ease);
+}
+
+::view-transition-image-pair(root) {
+  isolation: isolate;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  mix-blend-mode: normal;
+
+  animation-duration: var(--transition-duration);
+
+  animation-timing-function:
+    var(--transition-ease);
+
+  animation-fill-mode: both;
+}
+
+/* ========================================
+   TRANSIÇÕES — KEYFRAMES
+======================================== */
+
+
+/* SAÍDA DA PÁGINA ATUAL */
+
+@keyframes page-exit {
+
+  0% {
+    clip-path: inset(0 0 0 0);
+  }
+
+  45%,
+  100% {
+    clip-path: inset(0 0 100% 0);
+  }
+
+}
+
+
+/* ENTRADA DA NOVA PÁGINA */
+
+@keyframes page-enter {
+
+  0%,
+  55% {
+    clip-path: inset(100% 0 0 0);
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+
+}
+
+
+/* APLICAR ANIMAÇÕES */
+
+::view-transition-old(root) {
+  animation-name: page-exit;
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  animation-name: page-enter;
+  z-index: 2;
+}
+
+/* ========================================
+   TRANSIÇÕES — IDENTIDADES VISUAIS
+======================================== */
+
+
+/* SCRUM DUNGEON */
+
+html:active-view-transition-type(scrum) {
+  --transition-background: #211c2b;
+  --transition-foreground: #e4d6f7;
+
+  --transition-title: "Scrum Dungeon.";
+  --transition-index: "01 / CASE STUDY";
+}
+
+
+/* GREENER */
+
+html:active-view-transition-type(greener) {
+  --transition-background: #0c2528;
+  --transition-foreground: #a8df86;
+
+  --transition-title: "GreenER.";
+  --transition-index: "02 / CASE STUDY";
+}
+
+
+/* RETORNO AO INDEX */
+
+html:active-view-transition-type(index) {
+  --transition-background: #151515;
+  --transition-foreground: #ff27c8;
+
+  --transition-title: "VH.";
+  --transition-index: "PORTFÓLIO / VOL.02";
+}
+
+/* ========================================
+   TRANSIÇÕES — IDENTIFICAÇÃO TIPOGRÁFICA
+======================================== */
+
+::view-transition::before {
+  content: var(--transition-index);
+
+  position: absolute;
+
+  top: 10%;
+  left: 8%;
+
+  color: var(--transition-foreground);
+
+  font-family: var(--fonte-codigo, monospace);
+  font-size: clamp(10px, 1.2vw, 16px);
+
+  letter-spacing: 0.12em;
+
+  z-index: 0;
+}
+
+::view-transition::after {
+  content: var(--transition-title);
+
+  position: absolute;
+
+  top: 50%;
+  left: 8%;
+  right: 8%;
+
+  transform: translateY(-50%);
+
+  color: var(--transition-foreground);
+
+  font-family: var(--fonte-tech, Arial);
+  font-size: clamp(48px, 10vw, 160px);
+
+  font-weight: 900;
+  letter-spacing: -0.075em;
+  line-height: 0.9;
+
+  z-index: 0;
+}
+
+/* ========================================
+   TRANSIÇÕES — MOVIMENTO REDUZIDO
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  @view-transition {
+    navigation: none;
+  }
+
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+
+}

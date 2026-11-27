@@ -1,21 +1,20 @@
-# ra2581392613002
-Repositório do aluno VITOR LEONARDO SOUZA HIRCH.
 # Portfólio de Projetos - Fatec Jacareí
 
-**Aluno:** VITOR LEONARDO SOUZA HIRCH 
+**Aluno:** Vitor Leonardo Souza Hirch  
 **Curso:** Desenvolvimento de Software Multiplataforma  
-**Turma:** 2DSM – 1º Sem. 2026
+**Turma:** 1º Semestre de 2026
+**Semestre Atual** 2º Semestre
 
 ---
 
 **Portfólio Online**
 
-🔗 [Acesse o Portfólio](LINK_PARA_PORTFOLIO)
+🔗 [Acesse o Portfólio](https://fatec-jacarei-dsm-portfolio.github.io/ra2581392613002/)
 
 ---
 
 **Vídeos de Apresentação**
 
-🎤 2DSM - [Vídeo](LINK_VIDEO_2DSM)  
-🎤 4DSM - [Vídeo](LINK_VIDEO_4DSM)  
-🎤 6DSM - [Vídeo](LINK_VIDEO_6DSM)
+🎤 2DSM - Vídeo a disponibilizar  
+🎤 4DSM - Entrega futura  
+🎤 6DSM - Entrega futura

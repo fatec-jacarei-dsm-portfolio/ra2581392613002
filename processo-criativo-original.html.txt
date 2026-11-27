@@ -1,0 +1,36 @@
+      <section id="processo">
+        <span class="secao-label">PROCESSO</span>
+
+        <h2>Processo criativo</h2>
+
+        <p class="processo-intro">Do primeiro rascunho ao código.</p>
+
+        <div class="processo-botoes">
+          <button class="processo-botao ativo" data-etapa="esboco">
+            <img src="assets/processo-esboco.png" alt="" />
+
+            <span>01 · Esboço</span>
+          </button>
+
+          <button class="processo-botao" data-etapa="logica">
+            <img src="assets/processo-logica.png" alt="" />
+
+            <span>02 · Lógica</span>
+          </button>
+
+          <button class="processo-botao" data-etapa="implementacao">
+            <img src="assets/processo-implementacao.png" alt="" />
+
+            <span>03 · Implementação</span>
+          </button>
+        </div>
+
+        <div class="processo-descricao">
+          <h3 id="processo-titulo">Esboço</h3>
+
+          <p id="processo-texto">
+            Ideias começam no papel, explorando possibilidades, referências e
+            diferentes caminhos para a solução.
+          </p>
+        </div>
+      </section>
