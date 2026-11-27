@@ -1,0 +1,1507 @@
+/* ========================================
+   DESIGN SYSTEM — GRID EDITORIAL
+======================================== */
+
+/* Container principal */
+
+.container-editorial {
+  width: 100%;
+  max-width: var(--largura-maxima);
+
+  margin-inline: auto;
+  padding-inline: var(--margem-lateral);
+
+  box-sizing: border-box;
+}
+
+/* Container para conteúdos textuais */
+
+.container-leitura {
+  width: 100%;
+  max-width: var(--largura-leitura);
+
+  margin-inline: auto;
+}
+
+/* Grid de 12 colunas */
+
+.grid-editorial {
+  display: grid;
+
+  grid-template-columns: repeat(var(--grid-colunas), minmax(0, 1fr));
+
+  gap: var(--grid-gap);
+}
+
+/* Distribuição das colunas */
+
+.col-3 {
+  grid-column: span 3;
+}
+
+.col-4 {
+  grid-column: span 4;
+}
+
+.col-5 {
+  grid-column: span 5;
+}
+
+.col-6 {
+  grid-column: span 6;
+}
+
+.col-7 {
+  grid-column: span 7;
+}
+
+.col-8 {
+  grid-column: span 8;
+}
+
+.col-9 {
+  grid-column: span 9;
+}
+
+.col-12 {
+  grid-column: 1 / -1;
+}
+
+/* Ritmo vertical compartilhado */
+
+.secao-editorial {
+  padding-block: var(--espacamento-secao);
+}
+
+/* Separadores editoriais */
+
+.linha-editorial {
+  width: 100%;
+  height: 1px;
+
+  margin-block: var(--espaco-5);
+
+  background: var(--cor-borda);
+}
+
+.linha-editorial.invertida {
+  background: var(--cor-borda-invertida);
+}
+
+/* ========================================
+   GRID — RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 900px) {
+  .grid-editorial {
+    --grid-colunas: 6;
+  }
+
+  .grid-editorial > .col-3,
+  .grid-editorial > .col-4 {
+    grid-column: span 3;
+  }
+
+  .grid-editorial > .col-5,
+  .grid-editorial > .col-6,
+  .grid-editorial > .col-7,
+  .grid-editorial > .col-8,
+  .grid-editorial > .col-9,
+  .grid-editorial > .col-12 {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-editorial {
+    --grid-colunas: 4;
+  }
+
+  .grid-editorial
+    > :is(.col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-12) {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Camada compartilhada da migração. Mantém style.css como base. */
+.home-intro {
+  padding-block: clamp(40px, 6vw, 90px);
+  border-bottom: 1px solid #151515;
+}
+.home-intro-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: clamp(24px, 5vw, 80px);
+  align-items: end;
+}
+.home-intro-grid h2 {
+  margin: 20px 0 0;
+  font-size: clamp(38px, 5vw, 76px);
+}
+.home-intro-grid p {
+  max-width: 520px;
+  margin: 0;
+}
+.case-page .case-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: auto;
+  margin: 0;
+  overflow: visible;
+  background: #f2f0eb;
+  color: #151515;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px max(4vw, 16px);
+  border-bottom: 1px solid #151515;
+}
+.case-topbar a,
+.case-next a {
+  color: inherit;
+  text-decoration: none;
+}
+.case-brand {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.09em;
+}
+.case-topbar nav {
+  display: flex;
+  gap: clamp(12px, 3vw, 36px);
+  flex-wrap: wrap;
+}
+.case-topbar nav a,
+.case-index {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.case-topbar a:hover,
+.case-next a:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.case-progress {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 4px;
+  z-index: 110;
+  width: 100%;
+  background: #ff27c8;
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+.case-next {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 40px max(6vw, 24px);
+  border-top: 1px solid #151515;
+  font-weight: 700;
+}
+
+.case-video-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #f2f0eb;
+  border: 1px solid currentColor;
+  padding: 20px;
+  text-decoration: none;
+}
+.case-video-link:hover {
+  background: #f2f0eb;
+  color: #151515;
+}
+.case-page a:focus-visible {
+  outline: 2px solid #ff27c8;
+  outline-offset: 4px;
+}
+.reveal-pending {
+  opacity: 0;
+  transform: translateY(18px);
+}
+.reveal-ready {
+  transition:
+    opacity 0.65s ease,
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (max-width: 650px) {
+  .home-intro-grid {
+    grid-template-columns: 1fr;
+  }
+  .case-index {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal-pending {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal-ready {
+    transition: none;
+  }
+}
+
+/* Ajustes de ritmo e separação da home */
+body:not(.case-page) #sobre {
+  padding-bottom: clamp(32px, 4vw, 64px);
+}
+body:not(.case-page) #contato {
+  padding-top: clamp(40px, 5vw, 72px);
+  border-top: 1px solid #444;
+  background: #1d1d1d;
+}
+body:not(.case-page) .trajetoria-conteudo {
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(24px, 5vw, 70px);
+  min-height: 0;
+}
+body:not(.case-page) .trajetoria-galeria {
+  height: clamp(350px, 36vw, 500px);
+}
+.case-page #projeto-01,
+.case-page #projeto-02 {
+  padding-top: clamp(40px, 6vw, 85px);
+}
+.case-page .projeto-cabecalho {
+  margin-bottom: clamp(30px, 4vw, 60px);
+}
+.case-page .scrum-video {
+  aspect-ratio: 16/9;
+  background: #080808;
+}
+
+/* ========================================
+   HOME — HERO EDITORIAL
+======================================== */
+
+#inicio.hero-editorial {
+  width: 100%;
+  max-width: none;
+
+  margin-inline: 0;
+  padding-inline: 0;
+
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+
+/* ========================================
+   NAVEGAÇÃO
+======================================== */
+
+.hero-navbar {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: var(--espaco-4);
+
+  padding: var(--espaco-4) var(--margem-lateral);
+
+  border-bottom: 1px solid var(--cor-texto);
+}
+
+.hero-navbar a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hero-brand {
+  font-family: var(--fonte-tech);
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -0.1em;
+}
+
+.hero-brand span {
+  color: var(--cor-destaque);
+}
+
+.hero-nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: clamp(12px, 3vw, 48px);
+}
+
+.hero-nav-links a {
+  position: relative;
+
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.hero-nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 100%;
+  height: 2px;
+
+  background: var(--cor-destaque);
+
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform var(--duracao-media) var(--ease-suave);
+}
+
+.hero-nav-links a:hover::after,
+.hero-nav-links a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* ========================================
+   PALCO DA COMPOSIÇÃO
+======================================== */
+
+.hero-palco {
+  position: relative;
+  isolation: isolate;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: clamp(520px, 72vh, 850px);
+
+  margin-top: var(--espaco-3);
+
+  padding: clamp(20px, 3vw, 48px);
+
+  overflow: hidden;
+
+  background: var(--cor-texto);
+  color: var(--cor-fundo);
+}
+
+/* FOTOGRAFIA DE FUNDO */
+
+.hero-editorial .hero-fundo {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0.16;
+
+  z-index: -3;
+}
+
+/* MALHA GRÁFICA */
+
+.hero-malha {
+  position: absolute;
+  inset: 0;
+
+  z-index: -2;
+
+  background-image:
+    linear-gradient(rgba(242, 240, 235, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(242, 240, 235, 0.055) 1px, transparent 1px);
+
+  background-size: 48px 48px;
+
+  pointer-events: none;
+}
+
+/* FORMAS GRÁFICAS ORIGINAIS */
+
+.hero-editorial .hero-forma {
+  position: absolute;
+
+  z-index: -1;
+
+  pointer-events: none;
+}
+
+.hero-editorial .hero-forma-1 {
+  top: 0%;
+  left: 0;
+
+  width: 24%;
+
+  opacity: 0.8;
+}
+
+.hero-editorial .hero-forma-2 {
+  top: 0;
+  right: 0;
+
+  width: 15%;
+
+  opacity: 0.75;
+}
+
+/* ========================================
+   METADADOS EDITORIAIS
+======================================== */
+
+.hero-metadados {
+  display: flex;
+  justify-content: space-between;
+
+  gap: var(--espaco-3);
+
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+
+  letter-spacing: 0.08em;
+
+  color: var(--cor-texto-invertido);
+  position: relative;
+  z-index: 10;
+}
+
+/* ========================================
+   COMPOSIÇÃO PRINCIPAL
+======================================== */
+
+.hero-composicao {
+  position: relative;
+
+  flex: 1;
+
+  align-items: center;
+
+  min-height: 0;
+
+  padding-block: var(--espaco-5);
+}
+
+/* ÁREA VISUAL */
+
+.hero-visual {
+  position: relative;
+
+  align-self: stretch;
+
+  min-width: 0;
+  min-height: 540px;
+}
+
+/* ÁREA TIPOGRÁFICA */
+
+.hero-tipografia {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  min-width: 0;
+
+  padding-block: var(--espaco-5);
+  padding-left: clamp(68px, 80vw, 188px);
+}
+
+/* ========================================
+   COMPOSIÇÃO FOTOGRÁFICA
+======================================== */
+
+.hero-circulo {
+  position: absolute;
+
+  top: 48%;
+  left: 34%;
+
+  width: 128%;
+  aspect-ratio: 1;
+
+  border: 1px solid rgba(242, 240, 235, 0.22);
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 1;
+  pointer-events: none;
+
+  border-top-color: rgba(242, 240, 235, 0.85);
+}
+
+.hero-circulo::before {
+  content: "";
+
+  position: absolute;
+  inset: 12%;
+
+  border: 1px dashed rgba(242, 240, 235, 0.18);
+  border-radius: 50%;
+}
+
+.hero-circulo::after {
+  content: "";
+
+  position: absolute;
+  inset: -8px;
+
+  border: 2px solid transparent;
+
+  border-top-color: var(--cor-destaque);
+  border-bottom-color: rgba(242, 240, 235, 0.5);
+
+  border-radius: 50%;
+
+  clip-path: polygon(
+    40% 0,
+    65% 0,
+    65% 100%,
+    40% 100%
+  );
+
+  pointer-events: none;
+}
+
+/* FOTOGRAFIA RECORTADA */
+
+.hero-editorial .foto-hero {
+  position: absolute;
+
+  left: -28%;
+  bottom: -30%;
+
+  width: 310%;
+  height: 148%;
+
+  object-fit: contain;
+  object-position: left bottom;
+
+  z-index: 2;
+
+  pointer-events: none;
+}
+
+/* RESPINGO ORIGINAL */
+.hero-editorial .hero-respingo {
+  position: absolute;
+
+  top: 20%;
+  left: 5%;
+
+  width: clamp(52px, 7vw, 96px);
+
+  z-index: 5;
+
+  pointer-events: none;
+}
+
+/* LEGENDA DA IMAGEM */
+
+.hero-visual-indice {
+  position: absolute;
+
+  bottom: 18px;
+  left: 28px;
+
+  z-index: 4;
+
+  padding: 8px 12px;
+
+  background: var(--cor-texto);
+  color: var(--cor-fundo);
+
+  font-family: var(--fonte-codigo);
+  font-size: 9px;
+
+  letter-spacing: 0.08em;
+}
+
+/* ========================================
+   TIPOGRAFIA EXPRESSIVA
+======================================== */
+
+.hero-identificador {
+  display: inline-block;
+
+  margin-bottom: var(--espaco-4);
+  padding: 7px 12px;
+
+  background: var(--cor-destaque);
+  color: var(--cor-texto);
+
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+  font-weight: 700;
+
+  letter-spacing: 0.06em;
+}
+
+.hero-editorial .hero-nome {
+  position: relative;
+
+  margin: 0;
+
+  color: var(--cor-fundo);
+
+  font-size: clamp(64px, 11vw, 180px);
+  line-height: 0.85;
+
+  transform-origin: left center;
+}
+
+.hero-editorial .hero-nome span {
+  display: block;
+}
+
+/* ASSINATURA EDITORIAL */
+
+.hero-assinatura {
+  margin: var(--espaco-5) 0 0 0.2em;
+
+  font-family: var(--fonte-editorial);
+  font-size: clamp(24px, 3.5vw, 52px);
+  font-style: italic;
+
+  line-height: 1.1;
+
+  letter-spacing: -0.03em;
+}
+
+/* ========================================
+   BASE DO PALCO
+======================================== */
+
+.hero-base {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: var(--espaco-3);
+
+  padding-top: var(--espaco-4);
+
+  border-top: 1px solid var(--cor-borda-invertida);
+  position: relative;
+  z-index: 10;
+}
+
+.hero-editorial .hero-subtitulo {
+  position: static;
+
+  margin: 0;
+
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+
+  letter-spacing: 0.08em;
+
+  color: var(--cor-fundo);
+
+  padding: 8px 12px;
+
+  background: var(--cor-texto);
+  color: var(--cor-fundo);
+
+  opacity: 1;
+}
+
+.hero-explorar {
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+
+  color: var(--cor-destaque);
+
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+.hero-explorar span {
+  font-size: 24px;
+
+  transition: transform var(--duracao-media) var(--ease-suave);
+}
+
+.hero-explorar:hover span {
+  transform: translateY(5px);
+}
+
+/* ========================================
+   RODAPÉ DO HERO
+======================================== */
+
+.hero-rodape {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  gap: var(--espaco-3);
+
+  padding: var(--espaco-4) var(--margem-lateral);
+
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.hero-rodape-label {
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+
+  color: var(--cor-texto-secundario);
+}
+
+.hero-editorial .hero-social {
+  position: static;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: var(--espaco-4);
+}
+
+.hero-editorial .hero-social a {
+  color: var(--cor-texto);
+
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+  font-weight: 700;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: color var(--duracao-rapida) ease;
+}
+
+.hero-editorial .hero-social a:hover {
+  color: var(--cor-ruptura);
+}
+
+/* ========================================
+   HOME — PROJETOS EDITORIAIS
+======================================== */
+
+#projetos.secao-editorial {
+  width: 100%;
+  max-width: none;
+
+  margin: 0;
+  padding: var(--espacamento-secao) 0;
+
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+
+
+/* METADADOS SUPERIORES */
+
+.projetos-metadados {
+  display: flex;
+  justify-content: space-between;
+
+  gap: var(--espaco-3);
+
+  padding-bottom: var(--espaco-3);
+
+  border-bottom: 1px solid var(--cor-texto);
+
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+
+  letter-spacing: 0.08em;
+}
+
+
+/* CABEÇALHO EDITORIAL */
+
+.projetos-cabecalho {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: var(--espaco-2);
+
+  margin-block:
+    var(--espaco-6)
+    var(--espaco-5);
+}
+
+#projetos .projetos-cabecalho h2 {
+  margin: 0;
+
+  font-family: var(--fonte-tech);
+  font-size: clamp(38px, 9vw, 110px);
+  font-weight: 900;
+
+  line-height: 0.9;
+  letter-spacing: -0.075em;
+
+  text-transform: uppercase;
+}
+
+.projetos-cabecalho h2 > span {
+  color: var(--cor-destaque);
+}
+
+.projetos-cabecalho p {
+  margin-top: var(--espaco-4);
+
+  font-family: var(--fonte-editorial);
+  font-size: clamp(22px, 3vw, 42px);
+  font-style: italic;
+
+  letter-spacing: -0.03em;
+}
+
+.projetos-simbolo {
+  color: var(--cor-ruptura);
+
+  font-family: var(--fonte-tech);
+  font-size: clamp(48px, 7vw, 110px);
+
+  line-height: 1;
+}
+
+/* ========================================
+   PROJETOS — FILTROS
+======================================== */
+
+.projetos-filtros {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: var(--espaco-2);
+
+  margin-bottom: var(--espaco-6);
+  padding-bottom: var(--espaco-4);
+
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.projeto-filtro {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 10px 18px;
+
+  border: 1px solid transparent;
+
+  background: transparent;
+  color: var(--cor-texto);
+
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background var(--duracao-rapida),
+    color var(--duracao-rapida),
+    border-color var(--duracao-rapida);
+}
+
+.projeto-filtro:hover {
+  border-color: var(--cor-texto);
+}
+
+.projeto-filtro.ativo {
+  background: var(--cor-texto);
+  color: var(--cor-fundo);
+}
+
+.projeto-filtro.ativo > span {
+  color: var(--cor-destaque);
+}
+
+.projeto-filtro:focus-visible {
+  outline: 2px solid var(--cor-destaque);
+  outline-offset: 3px;
+}
+
+/* ========================================
+   PROJETOS — GRID ASSIMÉTRICO
+======================================== */
+
+.projetos-galeria {
+  align-items: start;
+
+  row-gap: var(--espaco-8);
+}
+
+.projeto-editorial {
+  min-width: 0;
+}
+
+.projeto-editorial[hidden] {
+  display: none;
+}
+
+
+/* DESLOCAMENTO EDITORIAL */
+
+.projeto-editorial:nth-child(even) {
+  margin-top: clamp(48px, 7vw, 112px);
+}
+
+
+/* NUMERAÇÃO */
+
+.projeto-editorial-indice {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: var(--espaco-3);
+
+  margin-bottom: var(--espaco-3);
+}
+
+.projeto-editorial-indice > span:first-child {
+  font-family: var(--fonte-tech);
+  font-size: clamp(32px, 4vw, 64px);
+  font-weight: 900;
+
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+.projeto-editorial-indice > span:last-child {
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+
+  color: var(--cor-texto-secundario);
+}
+
+/* ========================================
+   PROJETOS — CAPAS
+======================================== */
+
+.projeto-editorial-link {
+  display: block;
+
+  color: inherit;
+  text-decoration: none;
+}
+
+.projeto-editorial-imagem {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  width: 100%;
+  aspect-ratio: 4 / 3;
+
+  overflow: hidden;
+}
+
+.scrum-capa {
+  background: #211c2b;
+}
+
+.greener-capa {
+  background: #0c2528;
+}
+
+.projeto-editorial-imagem > img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  transition:
+    transform 750ms var(--ease-suave);
+}
+
+.projeto-editorial-link:hover
+.projeto-editorial-imagem > img {
+  transform: scale(1.045);
+}
+
+
+/* INDICADOR DE NAVEGAÇÃO */
+
+.projeto-editorial-overlay {
+  position: absolute;
+
+  right: var(--espaco-3);
+  bottom: var(--espaco-3);
+
+  padding: 12px 18px;
+
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+  font-weight: 700;
+
+  opacity: 0;
+  transform: translateY(12px);
+
+  transition:
+    opacity var(--duracao-media),
+    transform var(--duracao-media) var(--ease-suave);
+}
+
+.projeto-editorial-link:hover
+.projeto-editorial-overlay,
+
+.projeto-editorial-link:focus-visible
+.projeto-editorial-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   PROJETOS — INFORMAÇÕES
+======================================== */
+
+.projeto-editorial-info {
+  padding-block: var(--espaco-4);
+
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.projeto-editorial-categoria {
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+
+  letter-spacing: 0.06em;
+
+  color: var(--cor-texto-secundario);
+}
+
+.projeto-editorial-titulo {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: var(--espaco-3);
+
+  margin-block:
+    var(--espaco-3)
+    var(--espaco-2);
+}
+
+.projeto-editorial-titulo h3 {
+  margin: 0;
+
+  font-family: var(--fonte-tech);
+  font-size: clamp(28px, 3vw, 48px);
+  font-weight: 700;
+
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.projeto-editorial-titulo > span {
+  flex-shrink: 0;
+
+  font-size: 36px;
+
+  transition:
+    transform var(--duracao-media) var(--ease-suave),
+    color var(--duracao-media);
+}
+
+.projeto-editorial-link:hover
+.projeto-editorial-titulo > span {
+  transform: translate(4px, -4px);
+  color: var(--cor-ruptura);
+}
+
+.projeto-editorial-info p {
+  margin: 0;
+
+  max-width: 500px;
+
+  font-size: var(--texto-sm);
+  line-height: 1.7;
+
+  color: var(--cor-texto-secundario);
+}
+
+.projeto-editorial-link:focus-visible {
+  outline: 2px solid var(--cor-destaque);
+  outline-offset: 6px;
+}
+
+/* ========================================
+   PROJETOS — TAGS E RECONHECIMENTO
+======================================== */
+
+.projeto-editorial-tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: var(--espaco-2);
+
+  margin-top: var(--espaco-3);
+}
+
+.projeto-editorial-tags > span {
+  padding: 6px 10px;
+
+  border: 1px solid var(--cor-borda);
+
+  font-family: var(--fonte-codigo);
+  font-size: 10px;
+
+  color: var(--cor-texto-secundario);
+}
+
+.projeto-editorial-premiacao {
+  display: inline-block;
+
+  margin-top: var(--espaco-4);
+  padding: 9px 12px;
+
+  background: var(--cor-destaque);
+  color: var(--cor-texto);
+
+  font-family: var(--fonte-codigo);
+  font-size: 10px;
+  font-weight: 700;
+
+  line-height: 1.5;
+}
+
+/* ========================================
+   PROJETOS — ESTADO VAZIO
+======================================== */
+
+.projetos-vazio {
+  padding-block: var(--espaco-8);
+
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.projetos-vazio[hidden] {
+  display: none;
+}
+
+.projetos-vazio > span {
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+
+  color: var(--cor-texto-secundario);
+}
+
+.projetos-vazio h3 {
+  margin-block: var(--espaco-3);
+
+  font-family: var(--fonte-editorial);
+  font-size: var(--titulo-md);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.projetos-vazio p {
+  font-size: var(--texto-sm);
+
+  color: var(--cor-texto-secundario);
+}
+
+
+/* ========================================
+   PROJETOS — RODAPÉ EDITORIAL
+======================================== */
+
+.projetos-rodape {
+  display: flex;
+
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  gap: var(--espaco-3);
+
+  margin-top: var(--espaco-7);
+  padding-top: var(--espaco-4);
+
+  border-top: 1px solid var(--cor-texto);
+
+  font-family: var(--fonte-codigo);
+  font-size: var(--texto-xs);
+
+  letter-spacing: 0.06em;
+
+  color: var(--cor-texto-secundario);
+}
+
+/* ========================================
+   PROJETOS — CONTAINER DINÂMICO
+======================================== */
+
+.projetos-conteudo {
+  position: relative;
+  min-width: 0;
+
+  min-height: clamp(240px, 28vw, 420px);
+}
+
+.projetos-conteudo:focus-within {
+  outline: none;
+}
+
+/* ========================================
+   HERO — RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 900px) {
+  .hero-palco {
+    min-height: auto;
+  }
+
+  .hero-composicao {
+    gap: 0;
+  }
+
+  .hero-tipografia {
+    grid-row: 1;
+
+    padding-block: var(--espaco-5);
+
+    align-items: flex-start;
+  }
+
+  .hero-editorial .hero-nome {
+    font-size: clamp(76px, 15vw, 150px);
+  }
+
+  .hero-visual {
+    min-height: clamp(360px, 72vw, 560px);
+  }
+
+  .hero-editorial .foto-hero {
+    left: -8%;
+    bottom: -2%;
+
+    width: 118%;
+    height: 108%;
+
+    object-position: center bottom;
+  }
+
+  .hero-circulo {
+    width: min(80%, 380px);
+  }
+
+  .hero-visual-indice {
+    left: 0;
+    bottom: 12px;
+  }
+
+  body:not(.case-page) .trajetoria-conteudo {
+    grid-template-columns: 1fr;
+  }
+  body:not(.case-page) .trajetoria-galeria {
+    height: clamp(280px, 65vw, 480px);
+  }
+}
+
+@media (max-width: 600px) {
+  #inicio.hero-editorial {
+    padding-inline: var(--espaco-3);
+  }
+
+  .hero-navbar {
+    flex-wrap: wrap;
+
+    gap: var(--espaco-3);
+  }
+
+  .hero-nav-links {
+    gap: 12px;
+  }
+
+  .hero-nav-links a {
+    font-size: 10px;
+  }
+
+  .hero-palco {
+    padding: var(--espaco-3);
+  }
+
+  .hero-metadados {
+    font-size: 9px;
+  }
+
+  .hero-editorial .hero-nome {
+    font-size: clamp(52px, 18vw, 105px);
+  }
+
+  .hero-assinatura {
+    font-size: 28px;
+  }
+
+  .hero-visual {
+    min-height: 360px;
+  }
+
+  .hero-editorial .hero-forma-1 {
+    width: 45%;
+  }
+
+  .hero-editorial .hero-forma-2 {
+    width: 28%;
+  }
+
+  .hero-base {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .hero-editorial .hero-subtitulo,
+  .hero-explorar {
+    font-size: 9px;
+  }
+
+  .hero-rodape-label {
+    font-size: 9px;
+  }
+
+  .case-page .case-topbar {
+    flex-wrap: wrap;
+    padding: 12px 16px;
+  }
+  .case-topbar nav {
+    gap: 12px;
+  }
+  .contato-conteudo {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-bottom: 40px;
+  }
+  .contato-rodape {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .hero-editorial .hero-respingo {
+    top: 18%;
+    left: 58%;
+
+    width: 46px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-nav-links a::after,
+  .hero-explorar span,
+  .hero-editorial .hero-social a {
+    transition: none;
+  }
+
+  .hero-editorial .hero-nome.glitch {
+    animation: none;
+  }
+}
+
+/* ========================================
+   PROJETOS — RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 900px) {
+
+  .projeto-editorial:nth-child(even) {
+    margin-top: 0;
+  }
+
+  .projetos-galeria {
+    row-gap: var(--espaco-6);
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .projetos-cabecalho {
+    margin-block: var(--espaco-5);
+  }
+
+  #projetos .projetos-cabecalho h2 {
+    font-size: clamp(40px, 12vw, 72px);
+  }
+
+  .projetos-cabecalho p {
+    font-size: 22px;
+  }
+
+  .projetos-simbolo {
+    font-size: 36px;
+  }
+
+  .projetos-metadados {
+    font-size: 9px;
+  }
+
+  .projeto-filtro {
+    padding: 8px 10px;
+    font-size: 10px;
+  }
+
+  .projeto-editorial-titulo > span {
+    font-size: 28px;
+  }
+
+  .projetos-rodape {
+    font-size: 9px;
+  }
+
+}
+
+@media (hover: none) {
+
+  .projeto-editorial-overlay {
+    opacity: 1;
+    transform: none;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .projeto-filtro,
+  .projeto-editorial-imagem > img,
+  .projeto-editorial-overlay,
+  .projeto-editorial-titulo > span {
+    transition: none;
+  }
+
+}

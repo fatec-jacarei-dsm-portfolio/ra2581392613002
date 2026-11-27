@@ -1,7 +1,96 @@
+/* ========================================
+   DESIGN SYSTEM — VH / PORTFÓLIO 2026
+======================================== */
+
 :root {
+
+  /* 01 — PALETA CROMÁTICA */
+
   --cor-fundo: #f2f0eb;
   --cor-texto: #151515;
   --cor-destaque: #ff27c8;
+  --cor-ruptura: #df0028;
+
+  --cor-superficie-clara: #e8e5de;
+  --cor-superficie-escura: #1d1d1d;
+
+  --cor-texto-secundario: #65635e;
+  --cor-texto-invertido: #f2f0eb;
+
+  --cor-borda: rgba(21, 21, 21, 0.18);
+  --cor-borda-invertida: rgba(242, 240, 235, 0.18);
+
+
+  /* 02 — TIPOGRAFIA */
+
+  --fonte-tech: Arial, Helvetica, sans-serif;
+
+  --fonte-editorial: Georgia, "Times New Roman", serif;
+
+  --fonte-codigo: "Courier New", Courier, monospace;
+
+
+  /* 03 — ESCALA TIPOGRÁFICA */
+
+  --texto-xs: 0.6875rem;
+  --texto-sm: 0.875rem;
+  --texto-base: 1rem;
+
+  --texto-md: clamp(1rem, 1.3vw, 1.25rem);
+  --texto-lg: clamp(1.25rem, 2vw, 1.75rem);
+
+  --titulo-sm: clamp(1.75rem, 3vw, 2.5rem);
+  --titulo-md: clamp(2.5rem, 5vw, 5rem);
+  --titulo-lg: clamp(3.5rem, 8vw, 8rem);
+
+  --titulo-display: clamp(4rem, 12vw, 12rem);
+
+
+  /* 04 — ESPAÇAMENTOS */
+
+  --espaco-1: 4px;
+  --espaco-2: 8px;
+  --espaco-3: 16px;
+  --espaco-4: 24px;
+  --espaco-5: 32px;
+  --espaco-6: 48px;
+  --espaco-7: 64px;
+  --espaco-8: 96px;
+  --espaco-9: 128px;
+
+
+  /* 05 — GRID E DIMENSÕES */
+
+  --largura-maxima: 1600px;
+  --largura-conteudo: 1400px;
+  --largura-leitura: 720px;
+
+  --margem-lateral: clamp(20px, 5vw, 80px);
+  --espacamento-secao: clamp(64px, 8vw, 128px);
+
+  --grid-colunas: 12;
+  --grid-gap: clamp(12px, 2vw, 32px);
+
+
+  /* 06 — BORDAS */
+
+  --borda-fina: 1px;
+  --borda-media: 2px;
+
+  --raio-minimo: 2px;
+  --raio-pequeno: 6px;
+  --raio-circular: 50%;
+
+
+  /* 07 — MOVIMENTO */
+
+  --duracao-rapida: 180ms;
+  --duracao-media: 350ms;
+  --duracao-lenta: 750ms;
+
+  --ease-suave: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-impacto: cubic-bezier(0.76, 0, 0.24, 1);
+
 }
 
 * {
@@ -16,74 +105,8 @@ body {
   margin: 0;
 }
 
-#inicio {
-  position: relative;
-  width: min(100% - 32px, 1600px);
-  aspect-ratio: 16 / 7;
-  min-height: 520px;
-  max-height: 920px;
 
-  margin: 16px auto 0;
 
-  overflow: hidden;
-
-  background: #151515;
-}
-
-.hero-fundo {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-  object-position: center;
-
-  z-index: 1;
-}
-
-.hero-forma {
-  position: absolute;
-  z-index: 2;
-
-  pointer-events: none;
-}
-
-.hero-forma-1 {
-  left: 0;
-  top: 0;
-
-  width: 22%;
-  height: auto;
-}
-
-.hero-forma-2 {
-  right: 0;
-  top: 0;
-
-  width: 14%;
-  height: auto;
-}
-
-.hero-nome {
-  position: absolute;
-  z-index: 2;
-
-  top: 8%;
-  right: 7%;
-
-  margin: 0;
-
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(80px, 10vw, 180px);
-  font-weight: 700;
-  line-height: 0.78;
-  letter-spacing: -0.06em;
-
-  text-shadow: 8px 8px 0 #df0028;
-}
 
 /* ========================================
    HERO — VARIAÇÕES TIPOGRÁFICAS
@@ -114,7 +137,7 @@ body {
 /* 02 — EDITORIAL */
 
 .hero-nome.fonte-editorial {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--fonte-editorial);
 
   font-weight: 400;
   letter-spacing: -0.07em;
@@ -182,86 +205,6 @@ body {
 
 .hero-nome span {
   display: block;
-}
-.foto-hero {
-  position: absolute;
-  z-index: 3;
-
-  left: 0;
-  top: 0;
-
-  width: 75.104%;
-  height: 100%;
-
-  object-fit: cover;
-  object-position: left center;
-
-  pointer-events: none;
-}
-
-.hero-respingo {
-  position: absolute;
-  z-index: 4;
-  width: 120px;
-
-  top: 15%;
-  left: 10%;
-}
-
-.hero-subtitulo {
-  position: absolute;
-  z-index: 5;
-
-  left: 40px;
-  bottom: 30px;
-
-  margin: 0;
-
-  color: white;
-  font-family: Arial, sans-serif;
-  font-size: 12px;
-  letter-spacing: 0.25em;
-}
-
-.navbar {
-  position: absolute;
-
-  z-index: 10;
-
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  height: 64px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 8px;
-
-  background: rgba(242, 240, 235, 0.78);
-
-  border-top: 1px solid rgba(255, 255, 255, 0.55);
-
-  backdrop-filter: blur(5px);
-}
-
-.navbar a {
-  padding: 9px 15px;
-
-  color: #151515;
-
-  text-decoration: none;
-
-  font-size: 12px;
-
-  border-radius: 100px;
-}
-
-.navbar a:hover {
-  background: #151515;
-  color: white;
 }
 
 body {
@@ -3649,68 +3592,7 @@ section p {
 }
 
 @media (max-width: 768px) {
-  .navbar {
-    width: calc(100% - 30px);
-    justify-content: center;
-    gap: 0;
-  }
 
-  .navbar a {
-    padding: 8px 10px;
-    font-size: 11px;
-    background: var(--cor-destaque);
-    color: #151515;
-  }
-
-  .hero-nome {
-    font-size: 15vw;
-  }
-
-  .foto-hero {
-    height: 55vh;
-  }
-
-  .hero-respingo {
-    width: 100px;
-    right: 5%;
-  }
-
-  .hero-subtitulo {
-    left: 30px;
-    font-size: 9px;
-    bottom: 82px;
-  }
-
-  .hero-social {
-    position: absolute;
-    z-index: 10;
-
-    right: 30px;
-    bottom: 84px;
-
-    display: flex;
-    gap: 20px;
-  }
-
-  .hero-social a {
-    color: white;
-
-    font-size: 11px;
-    font-weight: 700;
-
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-
-    text-decoration: none;
-
-    border-bottom: 1px solid transparent;
-
-    transition: border-color 0.2s ease;
-  }
-
-  .hero-social a:hover {
-    border-color: var(--cor-destaque);
-  }
 
   .projeto-card,
   #sobre,
